@@ -8,4 +8,23 @@ html
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM', crossorigin='anonymous')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    div(class='container-fluid')
+      div(class='row')
+        div(class='col col-md-3')
+          a(href='/home', class='btn btn-primary') Logo
+        div(class='col-md-auto')
+        div(class='col')
+          a(href='/home', class='btn btn-primary') Home
+        div(class='col')
+          a(href='/timesheet', class='btn btn-primary') Timesheet
+        div(class='col')
+          a(href='/shiftManagement', class='btn btn-primary') Shift management
+        div(class='col')
+          a(href='/messages', class='btn btn-primary') Messages
+        div(class='col-md-auto')
+        div(class='col col-md-1')
+          a(href='/settings', class='btn btn-primary') Settings
+        div(class='col col-md-1')
+          a(href='/profile', class='btn btn-primary') profile
+  
     block content
