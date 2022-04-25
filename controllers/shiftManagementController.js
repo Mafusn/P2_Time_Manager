@@ -6,10 +6,10 @@ const { body,validationResult } = require("express-validator");
 // Display home page.
 
 exports.index = function(req, res) {
-    res.render('timesheet');
+    res.render('shiftManagement');
 };
 
 // Display list of all Genre.
 exports.timesheet_today = function(req, res) {
-    res.send('Not implemented yet: timesheet today')
+    res.send('Not implemented yet: Shift management')
 };

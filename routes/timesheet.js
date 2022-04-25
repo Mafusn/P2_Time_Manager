@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-
 // Require our controllers.
 var timesheet_controller = require('../controllers/timesheetController'); 
 
+// GET timesheet page
+router.get('/', timesheet_controller.index);
 
-/// BOOK ROUTES ///
+router.get('/timesheet-today', timesheet_controller.timesheet_today);
 
-// GET home page.
-router.get('/', timesheet_controller.index); 
+
+module.exports = router;
