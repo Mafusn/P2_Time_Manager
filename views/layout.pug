@@ -8,66 +8,45 @@ html
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM', crossorigin='anonymous')
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-  <body>
-    <div class="container">
-      <div class="row align-items-start">
-        <div class="col-md-12">
-          <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #7BBF54;">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-              <img src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d" alt="Logo" style="width:100px;height:60px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/" style="color: #FFFFFF;">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/timesheet" style="color: #FFFFFF;">Timesheet</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/shift-management" style="color: #FFFFFF;">Shift management</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/messages" style="color: #FFFFFF;">Messages</a>
-                </li>
-              </ul>
-              <form class="d-flex">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link" href="/settings">
-                  <img src="https://img.icons8.com/ios-glyphs/344/settings--v1.png" alt="Settings" style="width:42px;height:42px;">
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/profile">
-                  <img src="https://img.icons8.com/ios-glyphs/344/user--v1.png" alt="Profile" style="width:42px;height:42px;">
-                  </a>
-                </ul>
-              </form>
-            </div>
-          </div>
-          </nav>
-        </div>
-      </div>
-    </div>
-
-  <div class="sidenav">
-    <form class="row row-cols-lg-auto g-3 align-items-center">
-    <div class="col-12">
-      <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-text">
-        <img src="https://img.icons8.com/ios-glyphs/344/user--v1.png" alt="Profile" style="width:30px;height:30px;">
-        </div>
-        <label type="text" class="form-control" id="inlineFormInputGroupUsername">Username
-      </div>
-    </div>
-  </div>
-
-  </body>
+  body
+    .container
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        .row.align-items-start
+          .col-md-12
+            nav.navbar.fixed-top.navbar-expand-lg.navbar-light(style='background-color: #7BBF54;')
+              .container-fluid
+                a.navbar-brand(href='/')
+                  img(src='https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d' alt='Logo' style='width:100px;height:60px;')
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                  span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                  ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                    li.nav-item
+                      a.nav-link.active(aria-current='page' href='/' style='color: #FFFFFF;') Home
+                    li.nav-item
+                      a.nav-link(href='/timesheet' style='color: #FFFFFF;') Timesheet
+                    li.nav-item
+                      a.nav-link(href='/shift-management' style='color: #FFFFFF;') Shift management
+                    li.nav-item
+                      a.nav-link(href='/messages' style='color: #FFFFFF;') Messages
+                  form.d-flex
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                      li.nav-item
+                        a.nav-link(href='/settings')
+                          img(src='https://img.icons8.com/ios-glyphs/344/settings--v1.png' alt='Settings' style='width:42px;height:42px;')
+                      li.nav-item
+                        a.nav-link(href='/profile')
+                          img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:42px;height:42px;')
+    
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        .sidenav
+          form.row.row-cols-lg-auto.g-3.align-items-center
+            .col-12
+              label.visually-hidden(for='inlineFormInputGroupUsername') Username
+              .input-group
+                .input-group-text
+                  img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:30px;height:30px;')
+                label#inlineFormInputGroupUsername.form-control(type='text')
+                  | Username
   
     block content
