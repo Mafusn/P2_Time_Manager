@@ -5,21 +5,22 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-//var homeRouter = require('./routes/home');
 var timesheetRouter = require('./routes/timesheet');
 var shiftManagementRouter = require('./routes/shiftManagement')
+var profileRouter = require('./routes/profile');
+
 
 var app = express();
 
-/* Set up mongoose connection
+// Set up mongoose connection
 var mongoose = require('mongoose');
-var dev_db_url = 'mongodb+srv://Monster fedt link';
+var dev_db_url = 'mongodb+srv://planice:utd69nen@planice.e3io9.mongodb.net/planice?retryWrites=true&w=majority';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-*/
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,9 +33,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-//app.use('/home', homeRouter);
 app.use('/timesheet', timesheetRouter);
 app.use('/shift-management', shiftManagementRouter);
+app.use('/profile', profileRouter);
 
 
 // catch 404 and forward to error handler

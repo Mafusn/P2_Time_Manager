@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+    h1= title
+
+    form(method='POST' action='')
+        div.form-group
+        label(for='name') Name:
+        input#name.form-control(type='text' placeholder='Name (Christian Bale)' name='name' required='true' value=(undefined===user ? '' : user.name) )
+        div.form-group
+        label(for='position') Position:
+        select#position.form-control(type='select' placeholder='Select position' name='position' required='true')
+            option(value='Employee') Employee
+            option(value='Manager') Manager
+        button.btn.btn-primary(type='submit') Submit
+
+    if errors
+        ul
+        for error in errors
+            li!= error.msg
