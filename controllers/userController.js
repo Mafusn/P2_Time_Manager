@@ -11,9 +11,9 @@ exports.user_create_get = function(req, res, next) {
 exports.user_create_post = [
 
     // Validate and sanitize fields.
-    body('username').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
-    body('password').trim().isLength({ min: 1 }).escape().withMessage('Password must be specified.'),
-    body('position').escape(),
+    //body('username').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
+    //body('password').trim().isLength({ min: 1 }).escape().withMessage('Password must be specified.'),
+    //body('position').escape(),
 
     // Process request after validation and sanitization.
     (req, res, next) => {
