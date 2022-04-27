@@ -1,6 +1,7 @@
 var User = require('../models/user');
 var Shift = require('../models/shift');
 var async = require('async');
+const { body,validationResult } = require('express-validator');
 
 // Display User create form on GET.
 exports.user_create_get = function(req, res, next) {
