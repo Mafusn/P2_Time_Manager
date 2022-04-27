@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 //var homeRouter = require('./routes/home');
 var timesheetRouter = require('./routes/timesheet');
 var shiftManagementRouter = require('./routes/shiftManagement')
-
+var loginRouter = require('./routes/login');
 var app = express();
 
 /* Set up mongoose connection
@@ -35,7 +35,7 @@ app.use('/', indexRouter);
 //app.use('/home', homeRouter);
 app.use('/timesheet', timesheetRouter);
 app.use('/shift-management', shiftManagementRouter);
-
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
