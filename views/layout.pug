@@ -9,8 +9,8 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
 
   body
-    .container
-      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .container-fluid
+      nav.navbar.navbar-expand-lg.navbar-light
         .row.align-items-start
           .col-md-12
             nav.navbar.fixed-top.navbar-expand-lg.navbar-light(style='background-color: #7BBF54;')
@@ -37,16 +37,15 @@ html
                       li.nav-item
                         a.nav-link(href='/profile')
                           img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:42px;height:42px;')
-    
-      nav.navbar.navbar-expand-lg.navbar-light
-        .sidenav
-          form.row.row-cols-lg-auto.g-3.align-items-center
-            .col-12
-              label.visually-hidden(for='inlineFormInputGroupUsername') Username
-              .input-group
-                .input-group-text
-                  img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:30px;height:30px;')
-                label#inlineFormInputGroupUsername.form-control(type='text')
-                  | Username
-  
-      block content
+    block sidebar
+      .row.h-100
+        .col-sm-2.bg-light.mh-100
+          .row
+            .col-sm-3
+              img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:30px;height:30px;')
+            .col-sm-9
+              p(style='color: black; font-size: 12px;') Username
+            
+        .col-sm-10
+
+          block content
