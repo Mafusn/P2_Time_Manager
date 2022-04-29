@@ -10,9 +10,9 @@ router.get('/', function(req, res) {
 });
 
 // Get login page
-router.get('/login', login_controller.user_login_get);
+router.get('/', login_controller.user_login_get);
 
 // Login thing
-router.post('/login', login_controller.user_login_post);
+router.post('/', login_controller.user_login_post);
 
 module.exports = router;

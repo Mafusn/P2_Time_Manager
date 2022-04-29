@@ -18,11 +18,11 @@ exports.user_login_post = function(req, res, next) {
         }
 
         if (!user) {
-            return res.status(404).send();
+            res.render('login');
         }
 
         req.session.user = user;
         
-        return res.status(200).send();
+        res.render('index');
     })
 };
