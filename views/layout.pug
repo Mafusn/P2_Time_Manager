@@ -22,30 +22,46 @@ html
                 #navbarSupportedContent.collapse.navbar-collapse
                   ul.navbar-nav.me-auto.mb-2.mb-lg-0
                     li.nav-item
-                      a.nav-link.active(aria-current='page' href='/' style='color: #FFFFFF;') Home
+                      a.nav-link.active(class="buttontype1" aria-current='page' href='/' style='color: #FFFF;') Home
                     li.nav-item
-                      a.nav-link(href='/timesheet' style='color: #FFFFFF;') Timesheet
+                      <div class="dropdown">
+                            <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style='color: #FFFFFF;'>
+                              Dropdown Timesheet
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="/">Today's shifts</a></li>
+                              <li><a class="dropdown-item" href="/">Individual shifts</a></li>
+                              <li><a class="dropdown-item" href="/timesheet">Department shifts</a></li>
+                            </ul>
+                      </div>
                     li.nav-item
-                      a.nav-link(href='/shift-management' style='color: #FFFFFF;') Shift management
+                      <div class="dropdown">
+                            <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style='color: #FFFFFF;'>
+                              Dropdown Shift management
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="/shift-management/available-shifts">Available shifts</a></li>
+                              <li><a class="dropdown-item" href="/shift-management/swap-shifts">Swap shifts</a></li>
+                              <li><a class="dropdown-item" href="/shift-management/absence">Absence</a></li>
+                            </ul>
+                      </div>
                     li.nav-item
-                      a.nav-link(href='/messages' style='color: #FFFFFF;') Messages
+                      a.nav-link(class="buttontype1" href='/messages' style='color: #FFFFFF;') Messages
                   form.d-flex
                     ul.navbar-nav.me-auto.mb-2.mb-lg-0
                       li.nav-item
-                        a.nav-link(href='/settings')
+                        a.nav-link(class="buttontype2" href='/settings')
                           img(src='https://img.icons8.com/ios-glyphs/344/settings--v1.png' alt='Settings' style='width:42px;height:42px;')
                       li.nav-item
-                        a.nav-link(href='/profile')
-                          img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:42px;height:42px;')
-    block sidebar
-      .row.h-100
-        .col-sm-2.bg-light.mh-100
-          .row
-            .col-sm-3
-              img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:30px;height:30px;')
-            .col-sm-9
-              p(style='color: black; font-size: 12px;') Username
-            
-        .col-sm-10
+                        <div class="dropdown">
+                            <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:42px;height:42px;')
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                              <li><a class="dropdown-item" href="/profile/create">Create user</a></li>
+                              <li><a class="dropdown-item" href="/login">Log out</a></li>
+                            </ul>
+                        </div>
 
           block content
