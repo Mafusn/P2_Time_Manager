@@ -11,6 +11,7 @@ var shiftManagementRouter = require('./routes/shiftManagement')
 var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
 var settingsRouter = require('./routes/settings');
+var messagesRouter = require('./routes/messages');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use('/shift-management', shiftManagementRouter);
 app.use('/profile', profileRouter);
 app.use('/login', loginRouter);
 app.use('/settings', settingsRouter);
+app.use('/messages', messagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

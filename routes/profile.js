@@ -6,7 +6,7 @@ var user_controller = require('../controllers/userController');
 
 // Redirects /profile to /profile/create
 router.get('/', function(req, res) {
-    res.redirect('profile/create');
+    res.render('profile');
   });
 
 // GET user create page
