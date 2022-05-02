@@ -10,6 +10,7 @@ var timesheetRouter = require('./routes/timesheet');
 var shiftManagementRouter = require('./routes/shiftManagement')
 var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
+var messagesRouter = require('./routes/messages');
 var app = express();
 
 // Set up mongoose connection
@@ -38,6 +39,7 @@ app.use('/timesheet', timesheetRouter);
 app.use('/shift-management', shiftManagementRouter);
 app.use('/profile', profileRouter);
 app.use('/login', loginRouter);
+app.use('/messages', messagesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
