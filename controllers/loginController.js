@@ -7,6 +7,7 @@ exports.user_login_get = function(req, res, next) {
     res.render('login');
 };
 
+// Handle user login on POST
 exports.user_login_post = function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
