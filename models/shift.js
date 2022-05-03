@@ -4,8 +4,8 @@ const { DateTime } = require("luxon");  //for date handling
 var Schema = mongoose.Schema;
 
 var ShiftSchema = new Schema({
-    date: {type: Date, default: Date.now},
-    user: { type: Schema.ObjectId, ref: 'User', required: true }
+    date: { type: Date, default: Date.now, required: true},
+    user: { type: Schema.ObjectId, ref: 'User', required: true }, // Reference to the associated user.
 });
 
 // Virtual for this shift URL.
