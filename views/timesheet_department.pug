@@ -1,26 +1,41 @@
 extends layout
 
 block content
-
-
+ - let curr = new Date()
+ - function tester() { console.log('tester') };
+ - tester()
+ - let startdate = new Date(curr.getFullYear(), 0, 1);
+ - let days = Math.floor((curr - startdate) / (24 * 60 * 60 * 1000))
+ - let weeknumber = Math.ceil((curr.getDay() + days) / 7)
+ - let week = []
+ - let month = curr.getMonth() + 1
+ each i in [1,2,3,4,5,6,7]
+    - let day = curr.getDate() - curr.getDay() + i 
+    - week.push(day)
+    
  h1 Timesheet department page
  a(href='./create', class='btn btn-info') Create new shift
+ hr
+ 
+ button#test.btn.btn-primary(type='button', onclick='plusWeekNumber(weeknumber)') tester
+
+
  hr
 
  table(style='width:100%', border='1')
         tr
-            th 
-            th Monday
-            th Tuesday
-            th Wednesday
-            th Thursday
-            th Friday
-            th Saturday
-            th Sunday
+            th= weeknumber
+            each day_number in week
+                th= month + '/' + day_number
         each user in user_list
             tr
                 th= user.username
-                each shift in shift_list
-                    if (user._id.toString() === shift.user._id.toString())
-                        th= shift.date_yyyy_mm_dd
-                    else 
+                each i in [0, 1, 2, 3, 4, 5, 6]
+                    - let check = 0;
+                    each shift in shift_list
+                        if (user._id.toString() === shift.user._id.toString() && shift.dd === week[i] && shift.month === month)
+                            th= shift.date_yyyy_mm_dd
+                            - check = 1;
+                        else 
+                    if (check !== 1)
+                        th

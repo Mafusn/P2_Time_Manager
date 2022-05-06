@@ -82,7 +82,12 @@ exports.timesheet_individual = function(req, res) {
 
 // Display timesheet for department on GET.
 exports.timesheet_department = function(req, res, next) {
+    
+    function tester() {
+        console.log('tester');
+    }
 
+    
     // Get users and shifts for form.
     async.parallel({
         user: function(callback) {
@@ -100,7 +105,7 @@ exports.timesheet_department = function(req, res, next) {
                 return next(err);
             }
             // Success.
-            res.render('timesheet_department', { title: 'Timesheet Department', shift_list : results.shifts, user_list: results.user });
+            res.render('timesheet_department', { title: 'Timesheet Department', shift_list : results.shifts, user_list: results.user, tester: tester});
         });
 
 };

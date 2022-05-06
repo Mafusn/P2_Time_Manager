@@ -15,6 +15,18 @@ ShiftSchema
   return '/timesheet/today/';
 });
 
+ShiftSchema
+.virtual('dd')
+.get(function() {
+  return this.date.getDate(); // return shifts day of the month
+})
+
+ShiftSchema
+.virtual('month')
+.get(function() {
+  return this.date.getMonth() + 1; // return month
+})
+
 ShiftSchema.virtual('date_yyyy_mm_dd').get(function() {
   return DateTime.fromJSDate(this.date).toISODate(); //format 'YYYY-MM-DD'
 });

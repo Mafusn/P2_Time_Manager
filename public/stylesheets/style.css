@@ -72,3 +72,7 @@ button:hover {
 .buttontype2:hover {
   opacity: 0.8;
 }
+
+th {
+  width: 12.5%;
+}
