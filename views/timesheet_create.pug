@@ -6,7 +6,13 @@ block content
   form(method='POST' action='')
     div.form-group
       label(for='date') Date:
-      input#date.form-control(type='date' name='date' value=(undefined===author ? '' : shift.date))
+      input#date.form-control(type='date' name='date' value=(undefined===date ? '' : shift.date))
+
+      label(for='user') Employee:
+      select#user.form-control(type='select', placeholder='Select user' name='user' required='true' )
+        - user_list.sort(function(a, b) {let textA = a.username.toUpperCase(); let textB = b.username.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+        for user in user_list
+          option(value=user._id, selected=(selected_user==user._id.toString() ? 'selected' : false) ) #{user.username}
     button.btn.btn-primary(type='submit') Submit
 
   if errors

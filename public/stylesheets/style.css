@@ -112,4 +112,6 @@ button:hover {
   text-transform: uppercase;
 }
 
-
+th {
+  width: 12.5%;
+}
