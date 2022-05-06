@@ -101,3 +101,15 @@ button:hover {
   align-items: center;
 }
 
+#noticeboard {
+  height: 500px;
+  width: 500px;
+}
+
+.noticeboard h1 {
+  margin-bottom: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+
