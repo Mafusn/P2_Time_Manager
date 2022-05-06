@@ -25,6 +25,8 @@ exports.user_create_post = [
         // Create Author object with escaped and trimmed data
         var user = new User(
             {
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
                 username: req.body.username,
                 password: req.body.password,
                 position: req.body.position
