@@ -1,4 +1,4 @@
-function plusWeekNumber(ugenummer) {
+/*function plusWeekNumber(ugenummer) {
     ugenummer += 1;
 };
 
@@ -13,4 +13,4 @@ let month = curr.getMonth() + 1
 for (let i = 0; i <= 6; i++) {
     let day = curr.getDate() - curr.getDay() + i 
     week.push(day)
-}
+}*/

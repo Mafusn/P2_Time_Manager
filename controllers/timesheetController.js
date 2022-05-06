@@ -72,12 +72,30 @@ exports.shift_create_post = [
 ];
 
 exports.timesheet_today = function(req, res) {
-    res.render('timesheet_today');
+    // Get users and shifts for form.
+    async.parallel({
+        user: function(callback) {
+            User.find(callback)
+        },
+        shifts: function(callback) {
+            Shift.find(callback)
+        },
+
+        }, function(err, results) {
+            if (err) { return next(err); }
+            if (results.user==null) { // No results.
+                var err = new Error('No users found');
+                err.status = 404;
+                return next(err);
+            }
+            // Success.
+            res.render('timesheet_today', { title: "Today's shifts", shift_list : results.shifts, user_list: results.user});
+        });
 };
 
 // Display the individual time schedule
 exports.timesheet_individual = function(req, res) {
-    res.render('timesheet_individual')
+    res.render('timesheet_individual', { title: 'Your timesheet'})
 };
 
 // Display timesheet for department on GET.
@@ -105,7 +123,7 @@ exports.timesheet_department = function(req, res, next) {
                 return next(err);
             }
             // Success.
-            res.render('timesheet_department', { title: 'Timesheet Department', shift_list : results.shifts, user_list: results.user, tester: tester});
+            res.render('timesheet_department', { title: 'Timesheet for Department', shift_list : results.shifts, user_list: results.user, tester: tester});
         });
 
 };
