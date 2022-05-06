@@ -2,4 +2,29 @@ extends layout
 
 block content
 
-    h1 Home Page
+    .container
+        .row
+        .col.align-self-start
+        .col.align-self-center
+        h1.homepage Home Page
+        .col.align-self-end
+
+    script(type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js")
+    script(type="module" src="/chart.js")
+
+    .container
+        .row
+            .col.align-self-start
+            .col.align-self-end
+                .b-skills
+                    h2  Hours 
+                    .row
+                        .col
+                            .chartcontainer
+                                div
+                                    canvas#myChart(style="width:300px;height:300px;max-width:400px;aspect-ratio: auto 400 / 400;")
+                                    br
+                                    br
+                                    p.chart-text  Planned hours: 
+
+    
