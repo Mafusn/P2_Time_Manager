@@ -115,3 +115,9 @@ button:hover {
 th {
   width: 12.5%;
 }
+
+tbody, td, tfoot, th, thead, tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 1px;
+}

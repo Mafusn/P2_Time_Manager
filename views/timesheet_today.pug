@@ -2,6 +2,25 @@ extends layout
 
 block content
 
- h1 Timesheet today page
+ - let curr = new Date()
+ - let startdate = new Date(curr.getFullYear(), 0, 1);
+ - let month = curr.getMonth() + 1
+ - let day = curr.getDate()
+
+ h1(style='text-align: center;')= title
 
  a(href='./create', class='btn btn-info') Create new shift
+
+ hr
+
+
+ table(style='width:66%; margin-right:auto; margin-left:auto;', border='1')
+        tr
+            th
+            th(style='border-left: 10px;') Shifts
+        each user in user_list
+            tr
+                th= user.username
+                each shift in shift_list
+                    if (user._id.toString() === shift.user._id.toString() && shift.dd === day && shift.month === month)
+                        th= shift.date_yyyy_mm_dd

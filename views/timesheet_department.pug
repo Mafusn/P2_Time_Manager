@@ -2,25 +2,20 @@ extends layout
 
 block content
  - let curr = new Date()
- - function tester() { console.log('tester') };
- - tester()
  - let startdate = new Date(curr.getFullYear(), 0, 1);
  - let days = Math.floor((curr - startdate) / (24 * 60 * 60 * 1000))
- - let weeknumber = Math.ceil((curr.getDay() + days) / 7)
+ - let weeknumber = Math.floor((curr.getDay() + days + 1) / 7)
  - let week = []
  - let month = curr.getMonth() + 1
  each i in [1,2,3,4,5,6,7]
     - let day = curr.getDate() - curr.getDay() + i 
     - week.push(day)
     
- h1 Timesheet department page
+ h1(style='text-align: center;')= title
  a(href='./create', class='btn btn-info') Create new shift
  hr
  
- button#test.btn.btn-primary(type='button', onclick='plusWeekNumber(weeknumber)') tester
-
-
- hr
+ 
 
  table(style='width:100%', border='1')
         tr
