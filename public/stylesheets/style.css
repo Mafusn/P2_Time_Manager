@@ -121,3 +121,34 @@ tbody, td, tfoot, th, thead, tr {
   border-style: solid;
   border-width: 1px;
 }
+
+title {
+  text-align: center;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+#newshiftbtn {
+  color: white;
+  background-color: #04AA6D;
+  border-color: #04AA6D;
+}
+
+#col1 {
+  text-align: left;
+}
+
+#col2 {
+  text-align: right;
+}
+
+#cont {
+  padding: 0%;
+}
+
+#monthbtn {
+  color: white;
+  background-color: #04AA6D;
+  border-color: #04AA6D;
+  margin-left: 10px;
+}
