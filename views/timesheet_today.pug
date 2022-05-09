@@ -4,11 +4,13 @@ block content
 
  - let curr = new Date()
  - let startdate = new Date(curr.getFullYear(), 0, 1);
+ - let year = curr.getFullYear()
  - let month = curr.getMonth() + 1
  - let day = curr.getDate()
 
  
  h1(style='text-align: center;')= title
+ h4(style='text-align: center;')= day + '. ' + curr.toLocaleString('default', { month: 'long' }) + ' ' + year
 
  
 
