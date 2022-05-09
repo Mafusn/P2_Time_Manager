@@ -20,7 +20,7 @@ exports.timesheet_tester = function(req, res, next) {
 
 // Display shift create form on GET.
 exports.shift_create = function(req, res, next) {
-    User.find({},'username')
+    User.find({},'firstname')
     .exec(function (err, users) {
       if (err) { return next(err); }
       // Successful, so render.
@@ -52,7 +52,7 @@ exports.shift_create_post = [
 
     if (!errors.isEmpty()) {
         // There are errors. Render form again with sanitized values and error messages.
-        User.find({},'username')
+        User.find({},'firstname')
             .exec(function (err, users) {
                 if (err) { return next(err); }
                 // Successful, so render.
@@ -65,7 +65,7 @@ exports.shift_create_post = [
         shift.save(function (err) {
             if (err) { return next(err); }
                // Successful - redirect to new record.
-               res.render('timesheet_department_week', {title: 'Department schedule'});
+               res.render('index', {title: 'Department schedule'});
             });
     }
   }
@@ -125,11 +125,6 @@ exports.timesheet_department_week = function(req, res, next) {
 
 // Display timesheet for department on GET.
 exports.timesheet_department_month = function(req, res, next) {
-    
-    function tester() {
-        console.log('tester');
-    }
-
     
     // Get users and shifts for form.
     async.parallel({
