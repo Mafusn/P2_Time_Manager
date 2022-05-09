@@ -18,8 +18,11 @@ router.get('/today', timesheet_controller.timesheet_today);
 // GET timesheet individual page
 router.get('/individual', timesheet_controller.timesheet_individual);
 
-// GET timesheet department page
-router.get('/department', timesheet_controller.timesheet_department);
+// GET timesheet department page for a week
+router.get('/department/week', timesheet_controller.timesheet_department_week);
+
+// GET timesheet department page for a month
+router.get('/department/month', timesheet_controller.timesheet_department_month);
 
 // GET timesheet create page
 router.get('/create', timesheet_controller.shift_create);
