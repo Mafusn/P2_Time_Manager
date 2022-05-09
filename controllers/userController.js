@@ -13,6 +13,8 @@ exports.user_create_post = [
 
     // Validate and sanitize fields.
     body('username').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
+    body('firstname').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
+    body('lastname').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
     body('password').trim().isLength({ min: 1 }).escape().withMessage('Password must be specified.'),
     body('position').escape(),
 

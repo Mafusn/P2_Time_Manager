@@ -4,13 +4,18 @@ block content
 
  - let curr = new Date()
  - let startdate = new Date(curr.getFullYear(), 0, 1);
+ - let year = curr.getFullYear()
  - let month = curr.getMonth() + 1
  - let day = curr.getDate()
 
- br
- h1.homepage(style='text-align: center;')= title
 
- hr
+ br
+ 
+ h1.homepage(style='text-align: center;')= title
+ h4(style='text-align: center;')= day + '. ' + curr.toLocaleString('default', { month: 'long' }) + ' ' + year
+
+ br
+ br
 
  table(style='width:66%; margin-right:auto; margin-left:auto;', border='1')
         tr
@@ -19,7 +24,7 @@ block content
         each user in user_list
             - let check = 0;
             tr
-                th= user.username
+                th= user.firstname + ' ' + user.lastname
                 each shift in shift_list
                     if (user._id.toString() === shift.user._id.toString() && shift.dd === day && shift.month === month)
                         th= shift.date_yyyy_mm_dd
