@@ -20,7 +20,7 @@ exports.timesheet_tester = function(req, res, next) {
 
 // Display shift create form on GET.
 exports.shift_create = function(req, res, next) {
-    User.find({},'firstname')
+    User.find()
     .exec(function (err, users) {
       if (err) { return next(err); }
       // Successful, so render.
@@ -56,7 +56,7 @@ exports.shift_create_post = [
 
     if (!errors.isEmpty()) {
         // There are errors. Render form again with sanitized values and error messages.
-        User.find({},'firstname')
+        User.find()
             .exec(function (err, users) {
                 if (err) { return next(err); }
                 // Successful, so render.

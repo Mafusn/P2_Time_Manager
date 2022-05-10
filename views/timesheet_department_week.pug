@@ -39,7 +39,7 @@ block content
                     - let check = 0;
                     each shift in shift_list
                         if (user._id.toString() === shift.user._id.toString() && shift.dd === week[i] && shift.month === month)
-                            th= shift.date_yyyy_mm_dd
+                            th= shift.date_yyyy_mm_dd + " " + shift.timestart + "-" + shift.timeend
                             - check = 1;
                         else 
                     if (check !== 1)
