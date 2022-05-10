@@ -132,7 +132,7 @@ exports.timesheet_department_month = function(req, res, next) {
             User.find(callback)
         },
         shifts: function(callback) {
-            Shift.find(callback)
+            Shift.find(callback).sort([['date', 'ascending']])
         },
 
         }, function(err, results) {
