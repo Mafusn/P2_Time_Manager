@@ -40,7 +40,7 @@ block content
             tr
                 th= month_string.charAt(0).toUpperCase() + month_string.slice(1)
                 each i in weekNumbers
-                    th= weeknumber + i 
+                    th= 'Week' + ' ' + (weeknumber + i)
             each user in user_list
                 tr
                     th= user.firstname + " " + user.lastname
