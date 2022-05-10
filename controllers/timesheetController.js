@@ -20,7 +20,7 @@ exports.timesheet_tester = function(req, res, next) {
 
 // Display shift create form on GET.
 exports.shift_create = function(req, res, next) {
-    User.find({},'firstname')
+    User.find()
     .exec(function (err, users) {
       if (err) { return next(err); }
       // Successful, so render.
@@ -34,6 +34,8 @@ exports.shift_create_post = [
 
   // Validate and sanitize fields.
   body('date', 'Invalid date').isISO8601().toDate(),
+  body('timestart', 'Invalid time').trim().isLength({ min: 1 }).escape(),
+  body('timeend', 'Invalid time').trim().isLength({ min: 1 }).escape(),
   body('user', 'User must be specified').trim().isLength({ min: 1 }).escape(),
 
   // Process request after validation and sanitization.
@@ -46,13 +48,15 @@ exports.shift_create_post = [
       var shift = new Shift (
         {
             date: req.body.date,
+            timestart: req.body.timestart,
+            timeend: req.body.timeend,
             user: req.body.user
         }
     );
 
     if (!errors.isEmpty()) {
         // There are errors. Render form again with sanitized values and error messages.
-        User.find({},'firstname')
+        User.find()
             .exec(function (err, users) {
                 if (err) { return next(err); }
                 // Successful, so render.
