@@ -69,7 +69,7 @@ exports.shift_create_post = [
         shift.save(function (err) {
             if (err) { return next(err); }
                // Successful - redirect to new record.
-               res.render('timesheet_department_week', {title: 'Department schedule'});
+               res.render('index', {title: 'Department schedule'});
             });
     }
   }
