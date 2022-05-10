@@ -8,7 +8,7 @@ var ShiftSchema = new Schema({
     timestart: {type: String, required: true, maxlength: 100},
     timeend: {type: String, required: true, maxlength: 100},
     user: { type: Schema.ObjectId, ref: 'User', required: true }, // Reference to the associated user.
-});
+  });
 
 // Virtual for this shift URL.
 ShiftSchema
@@ -35,9 +35,9 @@ ShiftSchema
   let curr = this.date
   let startdate = new Date(curr.getFullYear(), 0, 1);
   let days = Math.floor((curr - startdate) / (24 * 60 * 60 * 1000))
-  let weeknumber = Math.floor((curr.getDay() + days + 1) / 7)
+  let weeknumber = Math.ceil((days - 1) / 7)
 
-  return weeknumber + 1; // return weeknumber
+  return weeknumber; // return weeknumber
 })
 
 ShiftSchema.virtual('date_yyyy_mm_dd').get(function() {

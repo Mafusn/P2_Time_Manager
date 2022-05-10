@@ -13,17 +13,17 @@ block content
     - let week = []
     - let weekNumbers = []
     - let month = curr.getMonth() + 1
-    - const month_string = curr.toLocaleString('default', { month: 'long' });
+    - const month_string = curr.toLocaleString('default', { month: 'long' });   
     - let i = 0
     while i <= numberOfWeeks 
         - weekNumbers.push(i)
         - i++
     each i in [1,2,3,4,5,6,7]
-        - let day = curr.getDate() - curr.getDay() + i 
+        - let day = curr.getDate() - curr.getDay() + i
         - week.push(day)
     
 
-    br   
+    br
     h1.homepage(style='text-align: center;')= title
 
     .container(id="cont")
@@ -43,14 +43,16 @@ block content
                     th= weeknumber + i 
             each user in user_list
                 tr
-                    th= user.firstname + " " + user.lastname
+                    td= user.firstname + " " + user.lastname
                     each i in weekNumbers
-                        - let check = 0;
-                        each shift in shift_list
-                            if (user._id.toString() === shift.user._id.toString() && shift.dd === week[i] && shift.month === month)
-                                th= shift.date_yyyy_mm_dd + " " + shift.timestart + "-" + shift.timeend
-                                - check = 1;
-                            else 
-                        if (check !== 1)
-                            th
-    
+                        - let count = 0;
+                        td
+                            each shift in shift_list
+                                if (user._id.toString() === shift.user._id.toString() && (weeknumber + i) === shift.week)
+                                    if (count === 0)
+                                        p(style='margin-bottom: 0px;')= shift.date_yyyy_mm_dd
+                                    else
+                                        br(style='height: 1px; width: 1px;')
+                                        p(style='margin-bottom: 0px;')= shift.date_yyyy_mm_dd
+                                    - count++
+
