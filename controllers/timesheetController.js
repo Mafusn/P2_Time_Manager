@@ -5,19 +5,6 @@ var mongoose = require('mongoose');
 const { body,validationResult } = require("express-validator");
 const user = require('../models/user');
 
-// Display todays shifts
-// Display list of all Authors.
-exports.timesheet_tester = function(req, res, next) {
-    Shift.find()
-      .sort([['date', 'ascending']])
-      .exec(function (err, list_shifts) {
-        if (err) { return next(err); }
-        // Successful, so render
-        res.render('timesheet_tester', { title: 'Timesheet list', shift_list: list_shifts });
-      });
-  
-  };
-
 // Display shift create form on GET.
 exports.shift_create = function(req, res, next) {
     User.find()
@@ -69,13 +56,13 @@ exports.shift_create_post = [
         shift.save(function (err) {
             if (err) { return next(err); }
                // Successful - redirect to new record.
-               res.render('index', {title: 'Department schedule'});
+               res.render('manager_index', {title: 'Department schedule'});
             });
     }
   }
 ];
 
-exports.timesheet_today = function(req, res) {
+exports.manager_timesheet_today = function(req, res) {
     // Get users and shifts for form.
     async.parallel({
         user: function(callback) {
@@ -93,17 +80,17 @@ exports.timesheet_today = function(req, res) {
                 return next(err);
             }
             // Success.
-            res.render('timesheet_today', { title: "Today's shifts", shift_list : results.shifts, user_list: results.user});
+            res.render('manager_timesheet_today', { title: "Today's shifts", shift_list : results.shifts, user_list: results.user});
         });
 };
 
 // Display the individual time schedule
-exports.timesheet_individual = function(req, res) {
-    res.render('timesheet_individual', { title: 'Your schedule'})
+exports.manager_timesheet_individual = function(req, res) {
+    res.render('manager_timesheet_individual', { title: 'Your schedule'})
 };
 
 // Display timesheet for department on GET.
-exports.timesheet_department_week = function(req, res, next) {
+exports.manager_timesheet_department_week = function(req, res, next) {
 
     // Get users and shifts for form.
     async.parallel({
@@ -122,13 +109,13 @@ exports.timesheet_department_week = function(req, res, next) {
                 return next(err);
             }
             // Success.
-            res.render('timesheet_department_week', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
+            res.render('manager_timesheet_department_week', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
         });
 
 };
 
 // Display timesheet for department on GET.
-exports.timesheet_department_month = function(req, res, next) {
+exports.manager_timesheet_department_month = function(req, res, next) {
     
     // Get users and shifts for form.
     async.parallel({
@@ -147,7 +134,84 @@ exports.timesheet_department_month = function(req, res, next) {
                 return next(err);
             }
             // Success.
-            res.render('timesheet_department_month', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
+            res.render('manager_timesheet_department_month', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
         });
 
+};
+
+// Display timesheet for department on GET.
+exports.employee_timesheet_department_week = function(req, res, next) {
+
+    // Get users and shifts for form.
+    async.parallel({
+        user: function(callback) {
+            User.find(callback)
+        },
+        shifts: function(callback) {
+            Shift.find(callback)
+        },
+
+        }, function(err, results) {
+            if (err) { return next(err); }
+            if (results.user==null) { // No results.
+                var err = new Error('No users found');
+                err.status = 404;
+                return next(err);
+            }
+            // Success.
+            res.render('employee_timesheet_department_week', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
+        });
+
+};
+
+// Display timesheet for department on GET.
+exports.employee_timesheet_department_month = function(req, res, next) {
+    
+    // Get users and shifts for form.
+    async.parallel({
+        user: function(callback) {
+            User.find(callback)
+        },
+        shifts: function(callback) {
+            Shift.find(callback).sort([['date', 'ascending']])
+        },
+
+        }, function(err, results) {
+            if (err) { return next(err); }
+            if (results.user==null) { // No results.
+                var err = new Error('No users found');
+                err.status = 404;
+                return next(err);
+            }
+            // Success.
+            res.render('employee_timesheet_department_month', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
+        });
+
+};
+
+exports.employee_timesheet_today = function(req, res) {
+    // Get users and shifts for form.
+    async.parallel({
+        user: function(callback) {
+            User.find(callback)
+        },
+        shifts: function(callback) {
+            Shift.find(callback)
+        },
+
+        }, function(err, results) {
+            if (err) { return next(err); }
+            if (results.user==null) { // No results.
+                var err = new Error('No users found');
+                err.status = 404;
+                return next(err);
+            }
+            // Success.
+            res.render('employee_timesheet_today', { title: "Today's shifts", shift_list : results.shifts, user_list: results.user});
+        });
+};
+
+// Display the individual time schedule
+exports.employee_timesheet_individual = function(req, res) {
+    res.render('employee_timesheet_individual', { title: 'Your schedule'})
 };

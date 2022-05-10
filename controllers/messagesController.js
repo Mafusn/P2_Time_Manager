@@ -1,9 +1,12 @@
-var User = require('../models/user');
-var async = require('async');
 var mongoose = require('mongoose');
 const { body,validationResult } = require("express-validator");
 
 // Display all messages
-exports.messages = function(req, res) {
-    res.render('messages');
+exports.manager_messages = function(req, res) {
+    res.render('manager_messages');
+};
+
+// Display all messages
+exports.employee_messages = function(req, res) {
+    res.render('employee_messages');
 };

@@ -1,4 +1,4 @@
-extends layout
+extends layout_employee
 
 block content
  
@@ -18,10 +18,10 @@ block content
     .container(id="cont")
         .row
             .col-4.col-sm-3(id="col1")
-                a(href='/timesheet/create', class='btn btn-info' id="newshiftbtn") Create new shift
+                
             .col-10.col-sm-9(id="col2")
-                a(href='/timesheet/department/week', class='btn btn-info' id="newshiftbtn") Week
-                a(href='/timesheet/department/month', class='btn btn-info' id="monthbtn") Month
+                a(href='/employee/timesheet/department/week', class='btn btn-info' id="newshiftbtn") Week
+                a(href='/employee/timesheet/department/month', class='btn btn-info' id="monthbtn") Month
 
     hr
  

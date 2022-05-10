@@ -4,7 +4,7 @@ var router = express.Router();
 // Require our controllers.
 var login_controller = require('../controllers/loginController');
 
-/* GET home page. */
+/* GET login page. */
 router.get('/', function(req, res) {
   res.render('login');
 });

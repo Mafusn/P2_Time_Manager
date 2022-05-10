@@ -1,0 +1,60 @@
+extends layout_manager
+
+block content
+
+    
+    - let curr = new Date()
+    - let firstDay = new Date(curr.getFullYear(), curr.getMonth(), 1);
+    - let lastDay = new Date(curr.getFullYear(), curr.getMonth() + 1, 0);3
+    - let numberOfWeeks = Math.ceil((lastDay.getDate() - firstDay.getDay()) / 7)
+    - let startdate = new Date(curr.getFullYear(), 0, 1);
+    - let days = Math.floor((firstDay - startdate) / (24 * 60 * 60 * 1000))
+    - let weeknumber = Math.ceil((days - 1) / 7)
+    - let week = []
+    - let weekNumbers = []
+    - let month = curr.getMonth() + 1
+    - const month_string = curr.toLocaleString('default', { month: 'long' });   
+    - let i = 0
+    while i <= numberOfWeeks 
+        - weekNumbers.push(i)
+        - i++
+    each i in [1,2,3,4,5,6,7]
+        - let day = curr.getDate() - curr.getDay() + i
+        - week.push(day)
+    
+
+    br
+    h1.homepage(style='text-align: center;')= title
+
+    .container(id="cont")
+        .row
+            .col-4.col-sm-3(id="col1")
+                a(href='/manager/timesheet/create', class='btn btn-info' id="newshiftbtn") Create new shift
+            .col-10.col-sm-9(id="col2")
+                a(href='/manager/timesheet/department/week', class='btn btn-info' id="newshiftbtn") Week
+                a(href='/manager/timesheet/department/month', class='btn btn-info' id="monthbtn") Month
+    
+    hr
+
+    table(style='width:100%', border='1')
+            tr
+                th= month_string.charAt(0).toUpperCase() + month_string.slice(1)
+                each i in weekNumbers
+                    th= weeknumber + i 
+            each user in user_list
+                tr
+                    th= user.firstname + " " + user.lastname
+                    each i in weekNumbers
+                        - let count = 0;
+                        td
+                            each shift in shift_list
+                                if (user._id.toString() === shift.user._id.toString() && (weeknumber + i) === shift.week)
+                                    if (count === 0)
+                                        p(style='margin-bottom: 0px;')= shift.date_yyyy_mm_dd
+                                        p(style='margin-bottom: 0px;')= shift.timestart + "-" + shift.timeend
+                                    else
+                                        br(style='height: 1px; width: 1px;')
+                                        p(style='margin-bottom: 0px;')= shift.date_yyyy_mm_dd
+                                        p(style='margin-bottom: 0px;')= shift.timestart + "-" + shift.timeend
+                                    - count++
+

@@ -6,12 +6,14 @@ var logger = require('morgan');
 var session = require('express-session')
 
 var indexRouter = require('./routes/index');
-var timesheetRouter = require('./routes/timesheet');
-var shiftManagementRouter = require('./routes/shiftManagement')
-var profileRouter = require('./routes/profile');
+//var timesheetRouter = require('./routes/timesheet');
+//var shiftManagementRouter = require('./routes/shiftManagement')
+//var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
-var settingsRouter = require('./routes/settings');
-var messagesRouter = require('./routes/messages');
+//var settingsRouter = require('./routes/settings');
+//var messagesRouter = require('./routes/messages');
+var employeeRouter = require('./routes/employee')
+var managerRouter = require('./routes/manager')
 
 var app = express();
 
@@ -37,12 +39,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'kmijhufo34jio6a45k4', resave: false, saveUninitialized: true}));
 
 app.use('/', indexRouter);
-app.use('/timesheet', timesheetRouter);
-app.use('/shift-management', shiftManagementRouter);
-app.use('/profile', profileRouter);
+//app.use('/timesheet', timesheetRouter);
+//app.use('/shift-management', shiftManagementRouter);
+//app.use('/profile', profileRouter);
 app.use('/login', loginRouter);
-app.use('/settings', settingsRouter);
-app.use('/messages', messagesRouter);
+//app.use('/settings', settingsRouter);
+//app.use('/messages', messagesRouter);
+app.use('/manager', managerRouter);
+app.use('/employee', employeeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
