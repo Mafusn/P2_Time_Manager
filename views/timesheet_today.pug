@@ -7,12 +7,13 @@ block content
  - let year = curr.getFullYear()
  - let month = curr.getMonth() + 1
  - let day = curr.getDate()
+ - const month_string = curr.toLocaleString('default', { month: 'long' });
 
 
  br
  
  h1.homepage(style='text-align: center;')= title
- h4(style='text-align: center;')= day + '. ' + curr.toLocaleString('default', { month: 'long' }) + ' ' + year
+ h4(style='text-align: center;')= day + '.' +  ' '+ month_string + ' ' + year
 
  br
  br
