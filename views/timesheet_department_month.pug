@@ -51,8 +51,10 @@ block content
                                 if (user._id.toString() === shift.user._id.toString() && (weeknumber + i) === shift.week)
                                     if (count === 0)
                                         p(style='margin-bottom: 0px;')= shift.date_yyyy_mm_dd
+                                        p(style='margin-bottom: 0px;')= shift.timestart + "-" + shift.timeend
                                     else
                                         br(style='height: 1px; width: 1px;')
                                         p(style='margin-bottom: 0px;')= shift.date_yyyy_mm_dd
+                                        p(style='margin-bottom: 0px;')= shift.timestart + "-" + shift.timeend
                                     - count++
 
