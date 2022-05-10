@@ -103,7 +103,7 @@ exports.timesheet_individual = function(req, res) {
 };
 
 // Display timesheet for department on GET.
-exports.timesheet_department_week = function(req, res, next) {
+exports.manager_timesheet_department_week = function(req, res, next) {
 
     // Get users and shifts for form.
     async.parallel({
@@ -122,13 +122,13 @@ exports.timesheet_department_week = function(req, res, next) {
                 return next(err);
             }
             // Success.
-            res.render('timesheet_department_week', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
+            res.render('manager_timesheet_department_week', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
         });
 
 };
 
 // Display timesheet for department on GET.
-exports.timesheet_department_month = function(req, res, next) {
+exports.manager_timesheet_department_month = function(req, res, next) {
     
     // Get users and shifts for form.
     async.parallel({
@@ -147,7 +147,7 @@ exports.timesheet_department_month = function(req, res, next) {
                 return next(err);
             }
             // Success.
-            res.render('timesheet_department_month', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
+            res.render('manager_timesheet_department_month', { title: 'Department schedule', shift_list : results.shifts, user_list: results.user});
         });
 
 };

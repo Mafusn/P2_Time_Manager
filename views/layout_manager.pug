@@ -15,23 +15,23 @@ html
           .col-md-12
             nav.navbar.fixed-top.navbar-expand-lg.navbar-light(style='background-color: #7BBF54;')
               .container-fluid
-                a.navbar-brand(href='/')
+                a.navbar-brand(href='/manager')
                   img(src='https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d' alt='Logo' style='width:100px;height:60px;')
                 button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                   span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
                   ul.navbar-nav.me-auto.mb-2.mb-lg-0
                     li.nav-item
-                      a.nav-link.active(class="buttontype1" aria-current='page' href='/' style='color: #FFFF;') Home
+                      a.nav-link.active(class="buttontype1" aria-current='page' href='/manager' style='color: #FFFF;') Home
                     li.nav-item
                       <div class="dropdown">
                             <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style='color: #FFFFFF;'>
                               Dropdown Timesheet
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="/timesheet/today">Today's shifts</a></li>
-                              <li><a class="dropdown-item" href="/timesheet/individual">Individual schedule</a></li>
-                              <li><a class="dropdown-item" href="/timesheet/department/week">Department schedule</a></li>
+                              <li><a class="dropdown-item" href="/manager/timesheet/today">Today's shifts</a></li>
+                              <li><a class="dropdown-item" href="/manager/timesheet/individual">Individual schedule</a></li>
+                              <li><a class="dropdown-item" href="/manager/timesheet/department/week">Department schedule</a></li>
                             </ul>
                       </div>
                     li.nav-item
@@ -40,18 +40,18 @@ html
                               Dropdown Shift management
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="/shift-management/available-shifts">Available shifts</a></li>
-                              <li><a class="dropdown-item" href="/shift-management/swap-shifts">Swap shifts</a></li>
-                              <li><a class="dropdown-item" href="/shift-management/absence">Absence</a></li>
-                              <li><a class="dropdown-item" href="/shift-management/manage-shifts">Manage shifts</a></li>
+                              <li><a class="dropdown-item" href="/manager/shift-management/available-shifts">Available shifts</a></li>
+                              <li><a class="dropdown-item" href="/manager/shift-management/swap-shifts">Swap shifts</a></li>
+                              <li><a class="dropdown-item" href="/manager/shift-management/absence">Absence</a></li>
+                              <li><a class="dropdown-item" href="/manager/shift-management/manage-shifts">Manage shifts</a></li>
                             </ul>
                       </div>
                     li.nav-item
-                      a.nav-link(class="buttontype1" href='/messages' style='color: #FFFFFF;') Messages
+                      a.nav-link(class="buttontype1" href='/manager/messages' style='color: #FFFFFF;') Messages
                   form.d-flex
                     ul.navbar-nav.me-auto.mb-2.mb-lg-0
                       li.nav-item
-                        a.nav-link(class="buttontype2" href='/settings')
+                        a.nav-link(class="buttontype2" href='/manager/settings')
                           img(src='https://img.icons8.com/ios-glyphs/344/settings--v1.png' alt='Settings' style='width:42px;height:42px;')
                       li.nav-item
                         <div class="dropdown">
@@ -59,8 +59,8 @@ html
                               img(src='https://img.icons8.com/ios-glyphs/344/user--v1.png' alt='Profile' style='width:42px;height:42px;')
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                              <li><a class="dropdown-item" href="/profile/create">Create user</a></li>
+                              <li><a class="dropdown-item" href="/manager/profile">Profile</a></li>
+                              <li><a class="dropdown-item" href="/manager/profile/create">Create user</a></li>
                               <li><a class="dropdown-item" href="/login">Log out</a></li>
                             </ul>
                         </div>

@@ -12,6 +12,7 @@ exports.user_login_post = function(req, res, next) {
     var username = req.body.username;
     var password = req.body.password;
 
+
     User.findOne({username: username, password: password}, function(err, user){
         if (err) {
             console.log(err);
@@ -21,9 +22,12 @@ exports.user_login_post = function(req, res, next) {
         if (!user) {
             res.render('login');
         }
-
-        req.session.user = user;
         
-        res.render('index');
+
+        if (user.position === 'Manager') {
+            res.redirect('/manager')
+        } else {
+            res.redirect('/employee');
+        }
     })
 };
