@@ -18,5 +18,11 @@ UserSchema
     return '/profile' + this.id;
 });
 
+UserSchema
+.virtual('fullname')
+.get(function() {
+  return this.firstname + " " + this.lastname; // return month
+});
+
 // Export model.
 module.exports = mongoose.model('User', UserSchema);
