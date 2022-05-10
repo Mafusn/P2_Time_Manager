@@ -47,7 +47,7 @@ exports.user_create_post = [
             user.save(function (err) {
                 if (err) { return next(err); }
                 // Successful - redirect to new user record.
-                res.render('index');
+                res.render('manager_index');
             });
         }
     }

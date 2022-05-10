@@ -9,15 +9,15 @@ var timesheet_controller = require('../controllers/timesheetController');
 
 /* GET manager index page. */
 router.get('/', function(req, res) {
-    res.render('manager_index');
+    res.render('employee_index');
   });
 
   // GET Message page
-router.get('/messages', messages_controller.manager_messages);
+router.get('/messages', messages_controller.employee_messages);
 
 // Get settings page
 router.get('/settings', function(req, res) {
-    res.render('manager_settings');
+    res.render('employee_settings');
   });
 
 
@@ -27,7 +27,7 @@ router.get('/settings', function(req, res) {
         /* Profile pages */
 // Redirects /profile to /profile/create
 router.get('/profile', function(req, res) {
-    res.render('manager_profile');
+    res.render('employee_profile');
   });
 
 // GET user create page
@@ -47,22 +47,16 @@ router.get('/timesheet', function(req, res) {
   });
 
 // GET timesheet today page
-router.get('/timesheet/today', timesheet_controller.manager_timesheet_today);
+router.get('/timesheet/today', timesheet_controller.employee_timesheet_today);
 
 // GET timesheet individual page
-router.get('/timesheet/individual', timesheet_controller.manager_timesheet_individual);
+router.get('/timesheet/individual', timesheet_controller.employee_timesheet_individual);
 
 // GET timesheet department page for a week
-router.get('/timesheet/department/week', timesheet_controller.manager_timesheet_department_week);
+router.get('/timesheet/department/week', timesheet_controller.employee_timesheet_department_week);
 
 // GET timesheet department page for a month
-router.get('/timesheet/department/month', timesheet_controller.manager_timesheet_department_month);
-
-// GET timesheet create page
-router.get('/timesheet/create', timesheet_controller.shift_create);
-
-// POST request for creating shift
-router.post('/timesheet/create', timesheet_controller.shift_create_post);
+router.get('/timesheet/department/month', timesheet_controller.employee_timesheet_department_month);
 
 
 
@@ -74,12 +68,12 @@ router.get('/shift-management', function(req, res) {
   });
 
 // GET available shifts page
-router.get('/shift-management/available-shifts', shiftManagement_controller.manager_shiftmanagement_available_shifts);
+router.get('/shift-management/available-shifts', shiftManagement_controller.employee_shiftmanagement_available_shifts);
 
 // GET swap shifts page
-router.get('/shift-management/swap-shifts', shiftManagement_controller.manager_shiftmanagement_swap);
+router.get('/shift-management/swap-shifts', shiftManagement_controller.employee_shiftmanagement_swap);
 
 // GET absence page
-router.get('/shift-management/absence', shiftManagement_controller.manager_shiftmanagement_absence);
+router.get('/shift-management/absence', shiftManagement_controller.employee_shiftmanagement_absence);
 
 module.exports = router;
