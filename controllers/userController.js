@@ -1,7 +1,50 @@
 var User = require('../models/user');
 var Shift = require('../models/shift');
+var NoticeBoard = require('../models/noticeboard');
 var async = require('async');
 const { body,validationResult } = require('express-validator');
+const noticeboard = require('../models/noticeboard');
+
+exports.manager_index = function(req,res,next) {
+    NoticeBoard.findOne()
+      .exec(function (err, noticeboard) {
+        if (err) { return next(err); }
+        //Successful, so render
+        res.render('manager_index', { title: 'Author List', noticeboard: noticeboard });
+      });
+}
+
+// Handle User create on POST.
+exports.manager_index_post = [
+
+    // Validate and sanitize fields.
+    body('notes').trim().escape(),
+  
+    // Process request after validation and sanitization.
+    (req, res, next) => {
+  
+        // Extract the validation errors from a request.
+        const errors = validationResult(req);
+        
+        // Create Shift object with escaped and trimmed data
+        var noticeboard = new NoticeBoard (
+          {
+              notes: req.body.notes
+          }
+      );
+  
+      if (errors.isEmpty()) {
+          // Data from form is valid
+          NoticeBoard.findOneAndUpdate()
+          .exec(function(err, noticeboard) {
+              if (err) { return next(err); }
+                 // Successful - redirect to new record.
+                 res.redirect('/manager');
+              });
+      }
+    }
+  ];
+
 
 // Display User create form on GET.
 exports.user_create_get = function(req, res, next) {

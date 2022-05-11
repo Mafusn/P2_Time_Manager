@@ -1,8 +1,9 @@
 extends layout_manager
 
 block content
-    h1 #{title}: #{shift.date_yyyy_mm_dd}
-    h2= shift.user.fullname
+    br
+    h1.homepage(style='text-align: center;')= title
+    h2= shift.user.fullname + ': ' + shift.date_yyyy_mm_dd
 
     p Do you really want to delete this Shift?
 

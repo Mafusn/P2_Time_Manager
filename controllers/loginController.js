@@ -20,11 +20,8 @@ exports.user_login_post = function(req, res, next) {
         }
 
         if (!user) {
-            res.render('login');
-        }
-        
-
-        if (user.position === 'Manager') {
+            res.redirect('/login');
+        } else if (user.position === 'Manager') {
             res.redirect('/manager')
         } else {
             res.redirect('/employee');
