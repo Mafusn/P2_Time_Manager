@@ -86,6 +86,9 @@ router.get('/shift-management/swap-shifts', shiftManagement_controller.manager_s
 // GET absence page
 router.get('/shift-management/absence', shiftManagement_controller.manager_shiftmanagement_absence);
 
+// GET absence page
+router.get('/shift-management/manage-shifts', shiftManagement_controller.shiftmanagement_manage_shifts);
+
 
 
     /* Update and delete shifts */
