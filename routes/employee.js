@@ -8,9 +8,7 @@ var shiftManagement_controller = require('../controllers/shiftManagementControll
 var timesheet_controller = require('../controllers/timesheetController'); 
 
 /* GET manager index page. */
-router.get('/', function(req, res) {
-    res.render('employee_index');
-  });
+router.get('/', user_controller.employee_index);
 
   // GET Message page
 router.get('/messages', messages_controller.employee_messages);

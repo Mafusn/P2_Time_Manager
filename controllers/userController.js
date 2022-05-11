@@ -3,14 +3,24 @@ var Shift = require('../models/shift');
 var NoticeBoard = require('../models/noticeboard');
 var async = require('async');
 const { body,validationResult } = require('express-validator');
-const noticeboard = require('../models/noticeboard');
 
-exports.manager_index = function(req,res,next) {
-    NoticeBoard.findOne()
+exports.employee_index = function(req,res,next) {
+    NoticeBoard.findById('627b9e6d381a8e68176bc15d')
+      .populate('notes')
       .exec(function (err, noticeboard) {
         if (err) { return next(err); }
         //Successful, so render
-        res.render('manager_index', { title: 'Author List', noticeboard: noticeboard });
+        res.render('employee_index', { title: 'Home Page', noticeboard: noticeboard });
+      });
+}
+
+exports.manager_index = function(req,res,next) {
+    NoticeBoard.findById('627b9e6d381a8e68176bc15d')
+      .populate('notes')
+      .exec(function (err, noticeboard) {
+        if (err) { return next(err); }
+        //Successful, so render
+        res.render('manager_index', { title: 'Home Page', noticeboard: noticeboard });
       });
 }
 
@@ -29,20 +39,30 @@ exports.manager_index_post = [
         // Create Shift object with escaped and trimmed data
         var noticeboard = new NoticeBoard (
           {
-              notes: req.body.notes
+              notes: req.body.notes,
+              _id: '627b9e6d381a8e68176bc15d'
           }
       );
   
-      if (errors.isEmpty()) {
-          // Data from form is valid
-          NoticeBoard.findOneAndUpdate()
-          .exec(function(err, noticeboard) {
-              if (err) { return next(err); }
-                 // Successful - redirect to new record.
-                 res.redirect('/manager');
-              });
-      }
+      if (!errors.isEmpty()) {
+        // There are errors. Render form again with sanitized values and error messages.
+        User.find({}, 'username')
+            .exec(function (err, users) {
+                if (err) { return next(err); }
+                // Successful, so render.
+                res.render('/manager', { title: 'Home Page', user_list: users, selected_user: shift.user._id, errors: errors.array(), shift: shift });
+        });
+        return;
     }
+    else {
+        // Data from form is valid
+        NoticeBoard.findByIdAndUpdate('627b9e6d381a8e68176bc15d', noticeboard, function (err, theshift) {
+            if (err) { return next(err); }
+               // Successful - redirect to new record.
+               res.redirect('/manager');
+            });
+    }
+  }
   ];
 
 
