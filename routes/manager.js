@@ -85,7 +85,13 @@ router.get('/shift-management/absence', shiftManagement_controller.manager_shift
 
 
 
-
+    /* Update and delete shifts */
 router.get('/timesheet/today/:id', timesheet_controller.shift_detail)
+
+router.get('/timesheet/today/:id/update', timesheet_controller.shift_update_get)
+router.post('/timesheet/today/:id/update', timesheet_controller.shift_update_post)
+
+router.get('/timesheet/today/:id/delete', timesheet_controller.shift_delete_get)
+router.post('/timesheet/today/:id/delete', timesheet_controller.shift_delete_post)
 
 module.exports = router;
