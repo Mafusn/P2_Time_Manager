@@ -14,7 +14,7 @@ exports.shift_create = function(req, res, next) {
       res.render('timesheet_create', {title: 'Create new shift', user_list: users } );
     });
   
-  };
+};
 
 // Handle User create on POST.
 exports.shift_create_post = [
