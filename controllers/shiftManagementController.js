@@ -20,7 +20,7 @@ exports.manager_shiftmanagement_absence = function(req, res) {
 
 // Display the page for managing shifts (only available for managers)
 exports.shiftmanagement_manage_shifts = function(req, res) {
-    res.render('shift_management_manage_shifts');
+    res.render('manager_shift_management_manage_shifts');
 };
 
 // Display all available shifts
