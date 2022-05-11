@@ -142,3 +142,11 @@ title {
 #chartcont {
   padding-left: 115px;
 }
+
+#leftc {
+  padding-right: 0%;
+}
+
+#rightc {
+  padding-left: 0%;
+}
