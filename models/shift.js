@@ -14,7 +14,7 @@ var ShiftSchema = new Schema({
 ShiftSchema
 .virtual('url')
 .get(function () {
-  return '/timesheet/today/';
+  return '/timesheet/today/' + this._id;
 });
 
 ShiftSchema

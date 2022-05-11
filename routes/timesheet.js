@@ -30,5 +30,8 @@ router.get('/create', timesheet_controller.shift_create);
 // POST request for creating shift
 router.post('/create', timesheet_controller.shift_create_post);
 
+// GET request for one BookInstance.
+router.get('/timesheet/today/:id', timesheet_controller.shift_detail);
+
 
 module.exports = router;

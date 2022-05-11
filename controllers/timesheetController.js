@@ -151,3 +151,20 @@ exports.timesheet_department_month = function(req, res, next) {
         });
 
 };
+
+// Display detail page for a specific Shift.
+exports.shift_detail = function(req, res, next) {
+
+    Shift.findById(req.params.id)
+    .exec(function (err, shift) {
+      if (err) { return next(err); }
+      if (shift==null) { // No results.
+          var err = new Error('Shift not found');
+          err.status = 404;
+          return next(err);
+        }
+      // Successful, so render.
+      res.render('update_shift', { title: 'Copy: ', shift: shift});
+    })
+   
+};

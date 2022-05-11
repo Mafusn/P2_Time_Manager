@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+    div.form-group
+        label(for='date') Date:
+        input#date.form-control(type='date' name='date' value=(undefined===date ? '' : shift.date))
+        br
+        label(for='timestart') Time start:
+        input#name.form-control(type='text' placeholder='00:00' name='timestart' required='true')
+        br
+        label(for='timeend') Time end:
+        input#name.form-control(type='text' placeholder='00:00' name='timeend' required='true')
+        br
+        label(for='user') Employee:
+        select#user.form-control(type='select', placeholder='Select user' name='user' required='true' )
+            - user_list.sort(function(a, b) {let textA = a.fullname.toUpperCase(); let textB = b.fullname.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+            for user in user_list
+            option(value=user._id, selected=(selected_user==user._id.toString() ? 'selected' : false) ) #{user.fullname}
+        hr
+        p
+            a(href=shifts.url+'/delete') Delete Shift
+        p
+            a(href=shifts.url+'/update') Update Shift
+
