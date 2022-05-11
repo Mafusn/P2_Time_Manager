@@ -1,8 +1,39 @@
 extends layout_manager
 
 block content
-
- br
- h1.homepage(style='text-align:center;')= title
- br
  
+    - let curr = new Date()
+    - let startdate = new Date(curr.getFullYear(), 0, 1);
+    - let days = Math.floor((curr - startdate) / (24 * 60 * 60 * 1000))
+    - let weeknumber = Math.floor((curr.getDay() + days + 1) / 7)
+    - let week = []
+    - let month = curr.getMonth() + 1
+    each i in [1,2,3,4,5,6,7]
+        - let day = curr.getDate() - curr.getDay() + i 
+        - week.push(day)
+
+    br   
+    h1.homepage(style='text-align: center;')= title
+
+    .container(id="cont")
+        .row
+            .col-4.col-sm-3(id="col1")
+                
+            .col-10.col-sm-9(id="col2")
+                a(href='/manager/timesheet/individual/week', class='btn btn-info' id="newshiftbtn") Week
+                a(href='/manager/timesheet/individual/month', class='btn btn-info' id="monthbtn") Month
+
+    hr
+ 
+ 
+
+    table(style='width:100%', border='1')
+        tr
+            th= "Week " + weeknumber
+            each day_number in week
+                th= month + '/' + day_number
+            tr
+                th= "Username"
+                each i in [0, 1, 2, 3, 4, 5, 6]
+                    - let check = 0;
+                    td
