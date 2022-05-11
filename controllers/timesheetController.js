@@ -84,11 +84,6 @@ exports.manager_timesheet_today = function(req, res) {
         });
 };
 
-// Display the individual time schedule
-exports.manager_timesheet_individual = function(req, res) {
-    res.render('manager_timesheet_individual', { title: 'Your schedule'})
-};
-
 // Display timesheet for department on GET.
 exports.manager_timesheet_department_week = function(req, res, next) {
 
@@ -212,8 +207,21 @@ exports.employee_timesheet_today = function(req, res) {
 };
 
 // Display the individual time schedule
-exports.employee_timesheet_individual = function(req, res) {
-    res.render('employee_timesheet_individual', { title: 'Your schedule'})
+
+exports.employee_timesheet_individual_week = function(req, res) {
+    res.render('employee_timesheet_individual_week', { title: 'Your schedule'})
+};
+
+exports.employee_timesheet_individual_month = function(req, res) {
+    res.render('employee_timesheet_individual_month', { title: 'Your schedule'})
+};
+
+exports.manager_timesheet_individual_week = function(req, res) {
+    res.render('manager_timesheet_individual_week', { title: 'Your schedule'})
+};
+
+exports.manager_timesheet_individual_month = function(req, res) {
+    res.render('manager_timesheet_individual_month', { title: 'Your schedule'})
 };
 
 

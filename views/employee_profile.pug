@@ -1,5 +1,28 @@
-extends layout_employee
+extends layout_manager
 
 block content
 
-    h1 Profile Page
+    h1.homepage Profile Page
+
+    
+    hr
+
+    div.form-group
+        label(for='firstname') First name:
+        input#name.form-control(type='text' placeholder='First name' name='firstname' required='true')
+        label(for='lastname') Last name:
+        input#name.form-control(type='text' placeholder='Last name' name='lastname' required='true')
+        div.form-group
+        label(for='username') Username:
+        input#name.form-control(type='text' placeholder='Username' name='username' required='true')
+        div.form-group
+        label(for='position') Position:
+        input#position.form-control(type='text' placeholder='Employee' name='position' required='true')
+
+        .container(id="cont")
+        .row
+            .col-4.col-sm-3(id="col1")
+                
+            .col-10.col-sm-9(id="col2")
+                a(href='', class='btn btn-info' id="newshiftbtn") Edit information
+                a(href='', class='btn btn-info' id="monthbtn") Change password
