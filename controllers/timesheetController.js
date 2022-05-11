@@ -7,13 +7,13 @@ const user = require('../models/user');
 
 // Display shift create form on GET.
 exports.shift_create = function(req, res, next) {
+
     User.find()
     .exec(function (err, users) {
       if (err) { return next(err); }
       // Successful, so render.
       res.render('timesheet_create', {title: 'Create new shift', user_list: users } );
     });
-  
   };
 
 // Handle User create on POST.
