@@ -49,8 +49,11 @@ router.get('/timesheet', function(req, res) {
 // GET timesheet today page
 router.get('/timesheet/today', timesheet_controller.manager_timesheet_today);
 
-// GET timesheet individual page
-router.get('/timesheet/individual', timesheet_controller.manager_timesheet_individual);
+// GET timesheet individual page for a week
+router.get('/timesheet/individual/week', timesheet_controller.manager_timesheet_individual_week);
+
+// GET timesheet individual page for a month
+router.get('/timesheet/individual/month', timesheet_controller.manager_timesheet_individual_month);
 
 // GET timesheet department page for a week
 router.get('/timesheet/department/week', timesheet_controller.manager_timesheet_department_week);
