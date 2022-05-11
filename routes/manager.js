@@ -9,9 +9,8 @@ var timesheet_controller = require('../controllers/timesheetController');
 const { route } = require('express/lib/application');
 
 /* GET manager index page. */
-router.get('/', function(req, res) {
-    res.render('manager_index');
-  });
+router.get('/', user_controller.manager_index);
+router.post('/', user_controller.manager_index_post);
 
   // GET Message page
 router.get('/messages', messages_controller.manager_messages);
@@ -86,7 +85,8 @@ router.get('/shift-management/swap-shifts', shiftManagement_controller.manager_s
 // GET absence page
 router.get('/shift-management/absence', shiftManagement_controller.manager_shiftmanagement_absence);
 
-// GET absence page
+
+// GET shift management page
 router.get('/shift-management/manage-shifts', shiftManagement_controller.shiftmanagement_manage_shifts);
 
 

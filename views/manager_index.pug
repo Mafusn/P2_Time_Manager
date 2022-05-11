@@ -17,7 +17,12 @@ block content
             .col.align-self-start
                 .form.homepage
                     h2.homepage Noticeboard
-                    textarea#noticeboard(type='text' name='fname')
+                    form(method='POST' action='')
+                        div.form-group
+                            textarea#notes.form-control(style=('height: 200px;') type='text' placeholder=noticeboard.notes name='notes' value=(undefined===noticeboard ? '' : noticeboard.notes))
+                        br
+                        button.btn.btn-primary(type='submit') Submit
+                        
                 
             .col.align-self-start
                 .form.homepage

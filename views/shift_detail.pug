@@ -1,8 +1,9 @@
 extends layout_manager
 
 block content
+    br
 
-    h1= title 
+    h1.homepage(style='text-align: center;')= title 
     h2= shift.date_yyyy_mm_dd
 
     h3= shift.user.fullname

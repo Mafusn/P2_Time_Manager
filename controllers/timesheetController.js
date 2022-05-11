@@ -7,6 +7,7 @@ const user = require('../models/user');
 
 // Display shift create form on GET.
 exports.shift_create = function(req, res, next) {
+
     User.find()
     .exec(function (err, users) {
       if (err) { return next(err); }
@@ -15,6 +16,7 @@ exports.shift_create = function(req, res, next) {
     });
   
 };
+
 
 // Handle User create on POST.
 exports.shift_create_post = [
