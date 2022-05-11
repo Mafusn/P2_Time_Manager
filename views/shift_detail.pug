@@ -2,5 +2,20 @@ extends layout_manager
 
 block content
 
- h1= title 
- h2= shift.date_yyyy_mm_dd
+    h1= title 
+    h2= shift.date_yyyy_mm_dd
+
+    h3= shift.user
+
+    
+
+    hr
+
+    a(href=shift.url+'/delete') Delete shift
+    br
+    a(href=shift.url+'/update') Update shift
+
+    if errors
+        ul
+            for error in errors
+                li!= error.msg
