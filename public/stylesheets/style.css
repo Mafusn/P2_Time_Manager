@@ -79,20 +79,6 @@ button:hover {
   text-transform: uppercase;
 }
 
-.b-skills {
-  text-align: center;
-}
-
-.b-skills:last-child {
-  margin-bottom: -30px;
-}
-
-.b-skills h2 {
-  margin-bottom: 20px;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
 .chart-text {
   font-weight: 900;
 }
@@ -152,4 +138,8 @@ title {
   background-color: #04AA6D;
   border-color: #04AA6D;
   margin-left: 10px;
+}
+
+#chartcont {
+  padding-left: 115px;
 }
