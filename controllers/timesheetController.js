@@ -56,7 +56,7 @@ exports.shift_create_post = [
         shift.save(function (err) {
             if (err) { return next(err); }
                // Successful - redirect to new record.
-               res.render('manager_index', {title: 'Department schedule'});
+               res.redirect('/manager/timesheet/department/week');
             });
     }
   }
@@ -82,11 +82,6 @@ exports.manager_timesheet_today = function(req, res) {
             // Success.
             res.render('manager_timesheet_today', { title: "Today's shifts", shift_list : results.shifts, user_list: results.user});
         });
-};
-
-// Display the individual time schedule
-exports.manager_timesheet_individual = function(req, res) {
-    res.render('manager_timesheet_individual', { title: 'Your schedule'})
 };
 
 // Display timesheet for department on GET.
@@ -212,6 +207,7 @@ exports.employee_timesheet_today = function(req, res) {
 };
 
 // Display the individual time schedule
+
 exports.employee_timesheet_individual_week = function(req, res) {
     res.render('employee_timesheet_individual_week', { title: 'Your schedule'})
 };
@@ -226,4 +222,127 @@ exports.manager_timesheet_individual_week = function(req, res) {
 
 exports.manager_timesheet_individual_month = function(req, res) {
     res.render('manager_timesheet_individual_month', { title: 'Your schedule'})
+};
+
+
+// Display detail page for a specific shift.
+exports.shift_detail = function(req, res, next) {
+
+    // Get shift and users for form.
+    async.parallel({
+        shift: function(callback) {
+            Shift.findById(req.params.id).populate('user').exec(callback)
+        },
+        users: function(callback) {
+            User.find(callback)
+        },
+
+        }, function(err, results) {
+            if (err) { return next(err); }
+            if (results.shift==null) { // No results.
+                var err = new Error('Shift not found');
+                err.status = 404;
+                return next(err);
+            }
+            // Success.
+            res.render('shift_detail', { title: 'Shift details', user_list: results.users, selected_user : results.shift.user.fullname, shift: results.shift });
+        });
+};
+
+exports.shift_update_get = function(req, res, next) {
+
+    // Get shift and books for form.
+    async.parallel({
+        shift: function(callback) {
+            Shift.findById(req.params.id).populate('user').exec(callback)
+        },
+        users: function(callback) {
+            User.find(callback)
+        },
+
+        }, function(err, results) {
+            if (err) { return next(err); }
+            if (results.shift==null) { // No results.
+                var err = new Error('Shift not found');
+                err.status = 404;
+                return next(err);
+            }
+            // Success.
+            res.render('timesheet_create', { title: 'Update Shift', user_list: results.users, selected_user : results.shift.user._id, shift: results.shift });
+        });
+};
+
+// Handle User create on POST.
+exports.shift_update_post = [
+
+    // Validate and sanitize fields.
+    body('date', 'Invalid date').isISO8601().toDate(),
+    body('timestart', 'Invalid time').trim().isLength({ min: 1 }).escape(),
+    body('timeend', 'Invalid time').trim().isLength({ min: 1 }).escape(),
+    body('user', 'User must be specified').trim().isLength({ min: 1 }).escape(),
+  
+    // Process request after validation and sanitization.
+    (req, res, next) => {
+  
+        // Extract the validation errors from a request.
+        const errors = validationResult(req);
+        
+        // Create Shift object with escaped and trimmed data
+        var shift = new Shift (
+          {
+              date: req.body.date,
+              timestart: req.body.timestart,
+              timeend: req.body.timeend,
+              user: req.body.user,
+              _id: req.params.id
+          }
+      );
+  
+      if (!errors.isEmpty()) {
+          // There are errors. Render form again with sanitized values and error messages.
+          User.find({}, 'username')
+              .exec(function (err, users) {
+                  if (err) { return next(err); }
+                  // Successful, so render.
+                  res.render('timesheet_create', { title: 'Update shift', user_list: users, selected_user: shift.user._id, errors: errors.array(), shift: shift });
+          });
+          return;
+      }
+      else {
+          // Data from form is valid
+          Shift.findByIdAndUpdate(req.params.id, shift, {}, function (err, theshift) {
+              if (err) { return next(err); }
+                 // Successful - redirect to new record.
+                 res.redirect('/manager/timesheet/department/week');
+              });
+      }
+    }
+  ];
+
+// Display shift delete form on GET.
+exports.shift_delete_get = function(req, res, next) {
+
+    Shift.findById(req.params.id)
+    .populate('user')
+    .exec(function (err, shift) {
+        if (err) { return next(err); }
+        if (shift==null) { // No results.
+            res.redirect('/manager/timesheet/department/week');
+        }
+        // Successful, so render.
+        res.render('shift_delete', { title: 'Delete shift', shift:  shift});
+    })
+
+};
+
+// Handle shift delete on POST.
+exports.shift_delete_post = function(req, res, next) {
+    
+    // Assume valid shift id in field.
+    Shift.findByIdAndRemove(req.body.shiftid, function deleteShift(err) {
+        if (err) { return next(err); }
+        // Success, so redirect to list of shift items.
+        res.redirect('/manager/timesheet/department/week');
+        });
+
 };

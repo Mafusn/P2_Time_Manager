@@ -1,0 +1,13 @@
+extends layout_manager
+
+block content
+    h1 #{title}: #{shift.date_yyyy_mm_dd}
+    h2= shift.user.fullname
+
+    p Do you really want to delete this Shift?
+
+    form(method='POST' action='')
+        div.form-group
+        input#shiftid.form-control(type='hidden',name='shiftid', required='true', value=shift._id )
+
+        button.btn.btn-primary(type='submit') Delete

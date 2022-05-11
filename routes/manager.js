@@ -6,6 +6,7 @@ var messages_controller = require('../controllers/messagesController');
 var user_controller = require('../controllers/userController');
 var shiftManagement_controller = require('../controllers/shiftManagementController'); 
 var timesheet_controller = require('../controllers/timesheetController'); 
+const { route } = require('express/lib/application');
 
 /* GET manager index page. */
 router.get('/', function(req, res) {
@@ -84,5 +85,16 @@ router.get('/shift-management/swap-shifts', shiftManagement_controller.manager_s
 
 // GET absence page
 router.get('/shift-management/absence', shiftManagement_controller.manager_shiftmanagement_absence);
+
+
+
+    /* Update and delete shifts */
+router.get('/timesheet/today/:id', timesheet_controller.shift_detail)
+
+router.get('/timesheet/today/:id/update', timesheet_controller.shift_update_get)
+router.post('/timesheet/today/:id/update', timesheet_controller.shift_update_post)
+
+router.get('/timesheet/today/:id/delete', timesheet_controller.shift_delete_get)
+router.post('/timesheet/today/:id/delete', timesheet_controller.shift_delete_post)
 
 module.exports = router;
