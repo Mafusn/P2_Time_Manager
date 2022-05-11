@@ -1,5 +1,23 @@
 extends layout_manager
 
 block content
+
     br
-    h1.homepage(style='text-align: center;') Swap shifts
+    h1.homepage Swap shifts
+    hr
+
+    form(method='POST' action='')
+        div.form-group
+            label(for='user') Employee:
+            select#user.form-control(type='select', placeholder='Select user' name='user' required='true' )
+                - user_list.sort(function(a, b) {let textA = a.fullname.toUpperCase(); let textB = b.fullname.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                for user in user_list
+                    option(value=user._id, selected=(selected_user==user._id.toString() ? 'selected' : false) ) #{user.fullname}
+        br
+        button.btn.btn-primary(type='submit') Search
+
+    if errors
+        ul
+            for error in errors
+                li!= error.msg
+

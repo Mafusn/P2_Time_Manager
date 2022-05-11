@@ -1,5 +1,27 @@
 extends layout_manager
 
 block content
+
     br
-    h1.homepage(style='text-align: center;') Message page
+    h1.homepage Messages
+
+    .list-group
+        a.list-group-item.list-group-item-action(href='#')
+            .d-flex.w-100.justify-content-between
+                h5.mb-1 Message subject
+                small 3 days ago
+            p.mb-1 Your request to swap shifts has been denied
+            small Sender
+        a.list-group-item.list-group-item-action(href='#')
+            .d-flex.w-100.justify-content-between
+                h5.mb-1 Message subject
+                small 3 days ago
+            p.mb-1 Your absence request has been accepted
+            small Sender
+        a.list-group-item.list-group-item-action(href='#')
+            .d-flex.w-100.justify-content-between
+                h5.mb-1 Message subject
+                small 3 days ago
+            p.mb-1 User has send you a swap request
+            small Sender
+

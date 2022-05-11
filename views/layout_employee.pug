@@ -20,11 +20,11 @@ html
                 button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
                   span.navbar-toggler-icon
                 #navbarSupportedContent.collapse.navbar-collapse
-                  ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                  ul.navbar-nav.me-auto.mb-2.mb-lg-0(style="align-items: center;")
                     li.nav-item
-                      a.nav-link.active(class="buttontype1" aria-current='page' href='/employee' style='color: #FFFF;') Home
+                      a.nav-link(class="buttontype1" href='/employee' style='color: #FFFF;') Home
                     li.nav-item
-                      <div class="dropdown">
+                      div(class="dropdown")
                             <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style='color: #FFFFFF;'>
                               Dropdown Timesheet
                             </button>
@@ -33,7 +33,6 @@ html
                               <li><a class="dropdown-item" href="/employee/timesheet/individual/week">Individual schedule</a></li>
                               <li><a class="dropdown-item" href="/employee/timesheet/department/week">Department schedule</a></li>
                             </ul>
-                      </div>
                     li.nav-item
                       <div class="dropdown">
                             <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style='color: #FFFFFF;'>
@@ -48,7 +47,7 @@ html
                     li.nav-item
                       a.nav-link(class="buttontype1" href='/employee/messages' style='color: #FFFFFF;') Messages
                   form.d-flex
-                    ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                    ul.navbar-nav.me-auto.mb-2.mb-lg-0(style="align-items: center;")
                       li.nav-item
                         a.nav-link(class="buttontype2" href='/employee/settings')
                           img(src='https://img.icons8.com/ios-glyphs/344/settings--v1.png' alt='Settings' style='width:42px;height:42px;')

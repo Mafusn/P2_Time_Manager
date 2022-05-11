@@ -19,16 +19,14 @@ block content
                     h2.homepage Noticeboard
                     h6(style=('text-transform: none;'))= noticeboard.notes
                 
-            .col.align-self-end(id="")
-                .b-skills
-                    h2  Hours 
-                    .row
-                        .col
-                            .chartcontainer
-                                div
-                                    canvas#myChart(style="width:300px;height:300px;max-width:400px;aspect-ratio: auto 400 / 400;")
-                                    br
-                                    br
-                                    p.chart-text  Planned hours: 
+            .col.align-self-start
+                .form.homepage
+                    h2.homepage Hours 
+                    .col
+                    .chartcontainer(id="chartcont")
+                        div
+                            canvas#myChart(style="width:300px;height:300px;max-width:400px;aspect-ratio: auto 400 / 400;")
+                          
+                                  
 
     

@@ -62,7 +62,6 @@ button:hover {
 
 .buttontype1 {
   font-size: 115%;
-  padding-top: 10px;
 }
 
 .buttontype1:hover {
@@ -75,20 +74,6 @@ button:hover {
 
 .homepage {
   text-align: center;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.b-skills {
-  text-align: center;
-}
-
-.b-skills:last-child {
-  margin-bottom: -30px;
-}
-
-.b-skills h2 {
-  margin-bottom: 20px;
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -152,4 +137,16 @@ title {
   background-color: #04AA6D;
   border-color: #04AA6D;
   margin-left: 10px;
+}
+
+#chartcont {
+  padding-left: 115px;
+}
+
+#leftc {
+  padding-right: 0%;
+}
+
+#rightc {
+  padding-left: 0%;
 }

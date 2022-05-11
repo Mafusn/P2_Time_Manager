@@ -1,5 +1,57 @@
 extends layout_employee
 
 block content
+
     br
-    h1.homepage(style='text-align: center;') Available shifts
+    h1.homepage Available shifts
+    hr
+
+    .container
+        .row.align-items-start
+            .col(id="leftc")
+                ul.list-group(style="border-radius: 0px;")
+                    li.list-group-item.d-flex.justify-content-between.align-items-start
+                        .ms-2.me-auto
+                            .fw-bold User
+                    br
+                        
+                    li.list-group-item.d-flex.justify-content-between.align-items-start
+                        .ms-2.me-auto
+                            .fw-bold User
+                    br
+                      
+                    li.list-group-item.d-flex.justify-content-between.align-items-start
+                        .ms-2.me-auto
+                            .fw-bold User
+                    br
+                        
+            .col(id="rightc")
+                ul.list-group(style="border-radius: 0px;")
+                    li.list-group-item.d-flex.justify-content-between.align-items-start
+                        .ms-2.me-auto
+                            .fw-bold Shift information
+                    br     
+                        
+                    li.list-group-item.d-flex.justify-content-between.align-items-start
+                        .ms-2.me-auto
+                            .fw-bold Shift information
+                    br
+                        
+                    li.list-group-item.d-flex.justify-content-between.align-items-start
+                        .ms-2.me-auto
+                            .fw-bold Shift information
+                    br
+            .col-1
+                ul(style="list-style:none;")
+                    li 
+                        a(href='', class='btn btn-info' id="newshiftbtn") Bid
+                    br
+                    li
+                        a(href='', class='btn btn-info' id="newshiftbtn") Bid
+                    br
+                    li
+                        a(href='', class='btn btn-info' id="newshiftbtn") Bid
+                    br
+      
+                     
+   

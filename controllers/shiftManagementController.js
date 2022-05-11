@@ -1,4 +1,5 @@
 var Shift = require('../models/shift');
+var User = require('../models/user');
 var async = require('async');
 var mongoose = require('mongoose');
 const { body,validationResult } = require("express-validator");
@@ -9,8 +10,12 @@ exports.manager_shiftmanagement_available_shifts = function(req, res) {
 };
 
 // Display the page to swap shifts
-exports.manager_shiftmanagement_swap = function(req, res) {
-    res.render('manager_shift_management_swap_shifts');
+exports.manager_shiftmanagement_swap = function(req, res, next) {
+    User.find()
+    .exec(function (err, users) {
+        if (err) { return next(err); }
+        res.render('manager_shift_management_swap_shifts', {title: 'Swap shifts', user_list: users });
+    });
 };
 
 // Display absence page
@@ -29,8 +34,12 @@ exports.employee_shiftmanagement_available_shifts = function(req, res) {
 };
 
 // Display the page to swap shifts
-exports.employee_shiftmanagement_swap = function(req, res) {
-    res.render('employee_shift_management_swap_shifts');
+exports.employee_shiftmanagement_swap = function(req, res, next) {
+    User.find()
+    .exec(function (err, users) {
+        if (err) { return next(err); }
+        res.render('employee_shift_management_swap_shifts', {title: 'Swap shifts', user_list: users });
+    });
 };
 
 // Display absence page
