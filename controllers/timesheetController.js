@@ -215,3 +215,22 @@ exports.employee_timesheet_today = function(req, res) {
 exports.employee_timesheet_individual = function(req, res) {
     res.render('employee_timesheet_individual', { title: 'Your schedule'})
 };
+
+
+// Display detail page for a specific shift.
+
+exports.shift_detail = function(req, res, next) {
+
+    Shift.findById(req.params.id)
+    .exec(function (err, shift) {
+        if(err) {return next(err);}
+        if (shift == null) { // No results
+            var err = new Error('Shift not found')
+            err.status = 404;
+            return next(err);
+        }
+
+    // Succesful, so render.
+    res.render('shift_detail', {title: 'Update shift', shift: shift})
+    })
+};
