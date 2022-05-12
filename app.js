@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
+var helmet = require('helmet');
+var compression = require('compression');
 
 var indexRouter = require('./routes/index');
 //var timesheetRouter = require('./routes/timesheet');
@@ -37,14 +39,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'kmijhufo34jio6a45k4', resave: false, saveUninitialized: true}));
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+      scriptSrc: ["'self'", 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com/'],
+      imgSrc: ["'self'", 'img.icons8.com', 'i.guim.co.uk'],
+    }
+}));
+app.use(compression()); // Compress all routes
 
 app.use('/', indexRouter);
-//app.use('/timesheet', timesheetRouter);
-//app.use('/shift-management', shiftManagementRouter);
-//app.use('/profile', profileRouter);
 app.use('/login', loginRouter);
-//app.use('/settings', settingsRouter);
-//app.use('/messages', messagesRouter);
 app.use('/manager', managerRouter);
 app.use('/employee', employeeRouter);
 
