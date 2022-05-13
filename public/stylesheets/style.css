@@ -28,7 +28,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 .login_button {
-  background-color: #04AA6D;
+  background-color: #FF8659;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -115,8 +115,8 @@ title {
 
 #newshiftbtn {
   color: white;
-  background-color: #04AA6D;
-  border-color: #04AA6D;
+  background-color: #FF8659;
+  border-color: #FF8659;
 }
 
 #col1 {
@@ -134,8 +134,8 @@ title {
 
 #monthbtn {
   color: white;
-  background-color: #04AA6D;
-  border-color: #04AA6D;
+  background-color: #FF8659;
+  border-color: #FF8659;
   margin-left: 10px;
 }
 

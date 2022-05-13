@@ -21,7 +21,7 @@ block content
                         div.form-group
                             textarea#notes.form-control(style=('height: 600px;') placeholder='Write notes to employees here...' type='text' name='notes') #{noticeboard.notes}
                         br
-                        button.btn.btn-primary(type='submit') Submit
+                        button.btn.btn-primary(type='submit' id="newshiftbtn") Submit
                         
                 
             .col.align-self-start
@@ -31,6 +31,8 @@ block content
                     .chartcontainer(id="chartcont")
                         div
                             canvas#myChart(style="width:300px;height:300px;max-width:400px;aspect-ratio: auto 400 / 400;")
+                    br
+                    h5.homepage Planned hours: 12
                           
                                   
 
