@@ -1,6 +1,17 @@
 extends layout_manager
 
 block content
+
     br
-    
     h1.homepage(style='text-align: center;') Absence page
+    hr
+
+    form(method='POST' action='')
+        div.form-group
+            label(for='date') Start date:
+            input#date.form-control(type='date' name='date' required='true' value=(undefined===shift ? '' : shift.date_yyyy_mm_dd))
+            br
+            label(for='date') End date:
+            input#date.form-control(type='date' name='date' required='true' value=(undefined===shift ? '' : shift.date_yyyy_mm_dd))
+            br
+    button.btn.btn-primary(type='submit' id="newshiftbtn") Request absence
