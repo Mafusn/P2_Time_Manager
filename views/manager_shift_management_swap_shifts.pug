@@ -2,6 +2,35 @@ extends layout_manager
 
 block content
 
+    #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                .modal-dialog
+                    .modal-content
+                        .modal-header
+                            h5#exampleModalLabel.modal-title Choose the shift you want to swap with
+                            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                        .modal-body
+                            .list-group
+                                a.list-group-item.list-group-item-action
+                                    .d-flex.w-100.justify-content-between
+                                        h5.mb-1 2022-05-11   
+                                        input#flexCheckDefault.form-check-input(type='checkbox' value='')
+                                    p.mb-1 Host 10:00-22:00
+                                    small Employee
+                                a.list-group-item.list-group-item-action
+                                    .d-flex.w-100.justify-content-between
+                                        h5.mb-1 2022-05-13   
+                                        input#flexCheckDefault.form-check-input(type='checkbox' value='')
+                                    p.mb-1 Cleaning 04:00-10:00
+                                    small Employee
+                                a.list-group-item.list-group-item-action
+                                    .d-flex.w-100.justify-content-between
+                                        h5.mb-1 2022-05-15   
+                                        input#flexCheckDefault.form-check-input(type='checkbox' value='')
+                                    p.mb-1 Sommelier 17:00-23:00
+                                    small Employee
+                        .modal-footer
+                            button.btn.btn-primary(type='button' data-bs-dismiss='modal' aria-label='Close') Send swap request
+
     br
     h1.homepage Swap shifts
     hr
@@ -14,10 +43,23 @@ block content
                 for user in user_list
                     option(value=user._id, selected=(selected_user==user._id.toString() ? 'selected' : false) ) #{user.fullname}
         br
-        button.btn.btn-primary(type='submit') Search
+        a(href='', class='btn btn-info' id="newshiftbtn") Search
+    br
 
-    if errors
-        ul
-            for error in errors
-                li!= error.msg
+    .list-group
+        a.list-group-item.list-group-item-action.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+            .d-flex.w-100.justify-content-between
+                h5.mb-1 2022-05-10   
+            p.mb-1 Bartender 18:30-23:00
+            small Employee
+        a.list-group-item.list-group-item-action.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+            .d-flex.w-100.justify-content-between
+                h5.mb-1 2022-05-12
+            p.mb-1 Reception 06:00-15:00
+            small Employee
+        a.list-group-item.list-group-item-action.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+            .d-flex.w-100.justify-content-between
+                h5.mb-1 2022-05-14
+            p.mb-1 Waiter 12:00-18:00
+            small Employee
 
