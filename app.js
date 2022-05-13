@@ -38,7 +38,6 @@ app.use(helmet.contentSecurityPolicy({
     directives: {
       scriptSrc: ["'self'", 'cdn.jsdelivr.net', 'cdnjs.cloudflare.com/'],
       imgSrc: ["'self'", 'img.icons8.com', 'i.guim.co.uk','i.ibb.co'],
-      frameSrc: ["'self'", 'imgur.com'],
     }
 }));
 app.use(compression()); // Compress all routes
