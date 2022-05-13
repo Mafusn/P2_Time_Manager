@@ -8,12 +8,7 @@ var helmet = require('helmet');
 var compression = require('compression');
 
 var indexRouter = require('./routes/index');
-//var timesheetRouter = require('./routes/timesheet');
-//var shiftManagementRouter = require('./routes/shiftManagement')
-//var profileRouter = require('./routes/profile');
 var loginRouter = require('./routes/login');
-//var settingsRouter = require('./routes/settings');
-//var messagesRouter = require('./routes/messages');
 var employeeRouter = require('./routes/employee')
 var managerRouter = require('./routes/manager')
 
