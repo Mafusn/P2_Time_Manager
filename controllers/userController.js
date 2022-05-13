@@ -110,8 +110,27 @@ exports.user_create_post = [
             user.save(function (err) {
                 if (err) { return next(err); }
                 // Successful - redirect to new user record.
-                res.render('manager_index');
+            });
+            NoticeBoard.findById('627b9e6d381a8e68176bc15d')
+            .populate('notes')
+            .exec(function (err, noticeboard) {
+                if (err) { return next(err); }
+                //Successful, so render
+                res.render('manager_index', { title: 'Home Page', noticeboard: noticeboard });
             });
         }
     }
 ];
+
+
+// Display User create form on GET.
+exports.manager_user_get = function(req, res, next) {
+
+    User.findById(req.params.id)
+    .exec(function (err, user) {
+      if (err) { return next(err); }
+      // Successful, so render.
+      res.render('profile_page', {title: 'Settings', user: user } );
+    });
+
+};
