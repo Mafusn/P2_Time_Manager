@@ -2,7 +2,7 @@ extends layout_manager
 
 block content
     br
-    h1.homepage(style='text-align: center;') Settings page
+    h1.homepage(style='text-align: center;')= title
 
     div.d-flex.justify-content-center.w-75 
         each user in user_list  
