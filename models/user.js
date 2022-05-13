@@ -15,7 +15,7 @@ var UserSchema = new Schema({
 UserSchema
 .virtual('url')
 .get(function () {
-    return '/profile' + this.id;
+    return '/profile/' + this.id;
 });
 
 UserSchema

@@ -16,12 +16,7 @@ router.post('/', user_controller.manager_index_post);
 router.get('/messages', messages_controller.manager_messages);
 
 // Get settings page
-router.get('/settings', function(req, res) {
-    res.render('manager_settings');
-  });
-
-
-
+router.get('/settings', messages_controller.manager_settings_get);
 
 
         /* Profile pages */
@@ -35,6 +30,14 @@ router.get('/profile/create', user_controller.user_create_get);
 
 // POST request for creating user
 router.post('/profile/create', user_controller.user_create_post);
+
+router.get('/profile/:id', user_controller.manager_user_get)
+
+router.get('/profile/:id/update', user_controller.manager_user_get)
+router.post('/profile/:id/update', user_controller.manager_user_get)
+
+router.get('/profile/:id/delete', user_controller.manager_user_get)
+router.post('/profile/:id/delete', user_controller.manager_user_get)
 
 
 

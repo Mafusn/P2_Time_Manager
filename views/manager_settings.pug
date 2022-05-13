@@ -3,3 +3,9 @@ extends layout_manager
 block content
     br
     h1.homepage(style='text-align: center;') Settings page
+
+    div.d-flex.justify-content-center.w-75 
+        each user in user_list  
+            ul 
+                a(href='/manager' + user.url, style='margin-bottom: 0px;')= user.fullname
+        

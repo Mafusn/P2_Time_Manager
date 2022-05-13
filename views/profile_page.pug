@@ -1,0 +1,18 @@
+extends layout_manager
+
+block content
+    br
+
+    h1.homepage(style='text-align: center;')= title 
+    h2= user.fullname
+
+    hr
+
+    a(href='/manager' + user.url + '/delete') Delete user
+    br
+    a(href='/manager' + user.url + '/update') Update update
+
+    if errors
+        ul
+            for error in errors
+                li!= error.msg
