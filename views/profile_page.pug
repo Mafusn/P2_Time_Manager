@@ -8,9 +8,10 @@ block content
 
     hr
 
-    a(href='/manager' + user.url + '/delete') Delete user
+    a(href='/manager' + user.url + '/delete', class='btn btn-info' id="newshiftbtn") Delete user
     br
-    a(href='/manager' + user.url + '/update') Update update
+    br
+    a(href='/manager' + user.url + '/update', class='btn btn-info' id="newshiftbtn") Update user
 
     if errors
         ul
