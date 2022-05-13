@@ -1,5 +1,89 @@
 extends layout_manager
 
 block content
+
+    #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5#exampleModalLabel.modal-title Information
+                    button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                .modal-body
+                    | Information about this specific request/bid
+                    
+                    .row
+                        .col 
+                            .form-check
+                                br
+                                input#flexRadioDefault1.form-check-input(type='radio' name='flexRadioDefault')
+                                label.form-check-label(for='flexRadioDefault1')
+                                    | Accept
+                        .col 
+                            .form-check
+                                br
+                                input#flexRadioDefault1.form-check-input(type='radio' name='flexRadioDefault')
+                                label.form-check-label(for='flexRadioDefault1')
+                                    | Deny
+                .modal-footer
+                    button.btn.btn-primary(type='button' data-bs-dismiss='modal' aria-label='Close') Save changes
+
     br
-    h1.homepage(style='text-align: center;') Manage shifts
+    h1.homepage Manage shifts
+    hr
+
+    .container
+        .row.align.items.start
+            .col.align-self-start
+                h2.homepage Swap requests
+                ul.list-group.align-items-center
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2
+                            h5.mb-1 Swap request
+                            p.mb-1 User1 wants to swap shifts with User2
+                            small 3 days ago
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Swap request
+                            p.mb-1 User1 wants to swap shifts with User2
+                            small 3 days ago
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Swap request
+                            p.mb-1 User1 wants to swap shifts with User2
+                            small 3 days ago
+            .col.align-self-start
+                h2.homepage Bids
+                ul.list-group.align-items-center
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Bid
+                            p.mb-1 User1 has bid on User2's shift
+                            small 3 days ago
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Bid
+                            p.mb-1 User1 has bid on User2's shift
+                            small 3 days ago
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Bid
+                            p.mb-1 User1 has bid on User2's shift
+                            small 3 days ago
+            .col.align-self-start
+                h2.homepage Absence requests
+                ul.list-group.align-items-center
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Absence request
+                            p.mb-1 User1 has requested absence
+                            small 3 days ago
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Absence request
+                            p.mb-1 User1 has requested absence
+                            small 3 days ago
+                    li.list-group-item.d-flex.justify-content-between.align-items-start.btn(type='button' data-bs-toggle='modal' data-bs-target='#exampleModal')
+                        .ms-2.me-auto
+                            h5.mb-1 Absence request
+                            p.mb-1 User1 has requested absence
+                            small 3 days ago
