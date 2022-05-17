@@ -106,6 +106,9 @@ tbody, td, tfoot, th, thead, tr {
   border-style: solid;
   border-width: 1px;
 }
+tr {
+  height: 40px;
+}
 
 title {
   text-align: center;

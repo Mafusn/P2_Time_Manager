@@ -20,7 +20,7 @@ exports.user_login_post = function(req, res, next) {
         }
 
         if (!user) {
-            res.redirect('/login');
+            res.render('login', {message: 'User not found'});
         } else if (user.position === 'Manager') {
             res.redirect('/manager')
         } else {

@@ -23,8 +23,8 @@ exports.shift_create_post = [
 
   // Validate and sanitize fields.
   body('date', 'Invalid date').isISO8601().toDate(),
-  body('timestart', 'Invalid time').trim().isLength({ min: 1 }).escape(),
-  body('timeend', 'Invalid time').trim().isLength({ min: 1 }).escape(),
+  body('timestart', 'Invalid time').trim().isLength({ min: 5, max: 5 }).escape(),
+  body('timeend', 'Invalid time').trim().isLength({ min: 5, max: 5 }).escape(),
   body('user', 'User must be specified').trim().isLength({ min: 1 }).escape(),
 
   // Process request after validation and sanitization.

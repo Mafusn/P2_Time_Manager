@@ -19,11 +19,14 @@ html
             br
             br
             p.login_overskrift  Welcome to Planice! Login to continue. 
+            if (message) 
+                h4(style='text-align: center; color: red;')= message
             .container.w-25
                 label(for='username')
                 b Username:
-                input#username.form-control(type='text' placeholder='Username' name='username' required='true')
+                input#username.form-control(type='text' placeholder='Enter Username' name='username' required='true')
                 label(for='password' style='color: white;')
                 b Password:
                 input#password.form-control(type='password' placeholder='Enter Password' name='password' required='true')
                 button.login_button(type='submit') Login
+    
