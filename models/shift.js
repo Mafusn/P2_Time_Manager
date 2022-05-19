@@ -5,8 +5,8 @@ var Schema = mongoose.Schema;
 
 var ShiftSchema = new Schema({
     date: { type: Date, default: Date.now, required: true},
-    timestart: {type: String, required: true, maxlength: 100},
-    timeend: {type: String, required: true, maxlength: 100},
+    timestart: {type: String, required: true, maxlength: 5},
+    timeend: {type: String, required: true, maxlength: 5},
     user: { type: Schema.ObjectId, ref: 'User', required: true }, // Reference to the associated user.
   });
 
