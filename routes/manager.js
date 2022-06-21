@@ -6,7 +6,6 @@ var messages_controller = require('../controllers/messagesController');
 var user_controller = require('../controllers/userController');
 var shiftManagement_controller = require('../controllers/shiftManagementController'); 
 var timesheet_controller = require('../controllers/timesheetController'); 
-const { route } = require('express/lib/application');
 
 /* GET manager index page. */
 router.get('/', user_controller.manager_index);

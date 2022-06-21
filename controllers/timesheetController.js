@@ -1,9 +1,7 @@
 var Shift = require('../models/shift');
 var User = require('../models/user');
 var async = require('async');
-var mongoose = require('mongoose');
 const { body,validationResult } = require("express-validator");
-const user = require('../models/user');
 
 // Display shift create form on GET.
 exports.shift_create = function(req, res, next) {

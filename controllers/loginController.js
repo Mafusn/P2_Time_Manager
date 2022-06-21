@@ -1,5 +1,4 @@
 var User = require('../models/user');
-var async = require('async');
 
 
 // Display User login on GET.

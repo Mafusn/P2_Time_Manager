@@ -1,6 +1,4 @@
-var mongoose = require('mongoose');
 var User = require('../models/user');
-const { body,validationResult } = require("express-validator");
 
 // Display all messages
 exports.manager_messages = function(req, res) {

@@ -7,7 +7,7 @@ var user_controller = require('../controllers/userController');
 var shiftManagement_controller = require('../controllers/shiftManagementController'); 
 var timesheet_controller = require('../controllers/timesheetController'); 
 
-/* GET manager index page. */
+/* GET employee index page. */
 router.get('/', user_controller.employee_index);
 
   // GET Message page
@@ -23,7 +23,6 @@ router.get('/settings', function(req, res) {
 
 
         /* Profile pages */
-// Redirects /profile to /profile/create
 router.get('/profile', function(req, res) {
     res.render('employee_profile');
   });

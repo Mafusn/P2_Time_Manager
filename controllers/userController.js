@@ -1,7 +1,5 @@
 var User = require('../models/user');
-var Shift = require('../models/shift');
 var NoticeBoard = require('../models/noticeboard');
-var async = require('async');
 const { body,validationResult } = require('express-validator');
 
 exports.employee_index = function(req,res,next) {
@@ -76,8 +74,8 @@ exports.user_create_post = [
 
     // Validate and sanitize fields.
     body('username').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
-    body('firstname').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
-    body('lastname').trim().isLength({ min: 1 }).escape().withMessage('Username must be specified.'),
+    body('firstname').trim().isLength({ min: 1 }).escape().withMessage('First name must be specified.'),
+    body('lastname').trim().isLength({ min: 1 }).escape().withMessage('Last name must be specified.'),
     body('password').trim().isLength({ min: 1 }).escape().withMessage('Password must be specified.'),
     body('position').escape(),
 
